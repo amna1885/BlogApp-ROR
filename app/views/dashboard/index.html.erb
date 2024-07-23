@@ -1,0 +1,22 @@
+<h1>Dashboard</h1>
+
+<h2>Recent Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li><%= link_to post.title, post %></li>
+  <% end %>
+</ul>
+
+<h2>Recent Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li><%= link_to comment.content, comment.post %></li>
+  <% end %>
+</ul>
+
+<h2>Recent Likes</h2>
+<ul>
+  <% @likes.each do |like| %>
+    <li><%= link_to like.user.email, like.user %> liked <%= link_to like.post.title, like.post %></li>
+  <% end %>
+</ul>
