@@ -8,61 +8,45 @@
 
 # db/seeds.rb
 
-# Create roles using Rolify
-roles = ['Admin', 'Moderator', 'User']
-roles.each do |role_name|
-  Role.find_or_create_by(name: role_name)
-end
-
-# Create users and assign roles
-admin = User.create!(
-  email: 'admin@example.com',
-  password: 'password123'
+# using admin column
+# Create an admin user
+admin_user = User.create!(
+  email: 'admin11@example.com',
+  password: 'password',
+  password_confirmation: 'password',
+  admin: true
 )
-admin.add_role :admin
 
-moderator = User.create!(
-  email: 'moderator@example.com',
-  password: 'password123'
-)
-moderator.add_role :moderator
-
-regular_user = User.create!(
-  email: 'user@example.com',
-  password: 'password123'
-)
-regular_user.add_role :user
-
-# Create posts
+# Create posts with the admin user as the author
 post1 = Post.create!(
   title: 'First Post',
   content: 'This is the content of the first post.',
-  user: admin
+  user: admin_user
 )
 post2 = Post.create!(
   title: 'Second Post',
   content: 'This is the content of the second post.',
-  user: regular_user
+  user: admin_user
 )
 
-# Create comments
+# Create comments with the admin user as the author
 Comment.create!(
   content: 'Great post!',
-  user: regular_user,
-  post: post1
+  post: post1,
+  user: admin_user
 )
 Comment.create!(
   content: 'Thanks for sharing.',
-  user: admin,
-  post: post2
+  post: post2,
+  user: admin_user
 )
 
-# Create likes
+# Create likes by the admin user
 Like.create!(
-  user: admin,
-  post: post1
+  post: post1,
+  user: admin_user
 )
 Like.create!(
-  user: regular_user,
-  post: post2
+  post: post2,
+  user: admin_user
 )
