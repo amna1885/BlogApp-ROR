@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_22_163230) do
+ActiveRecord::Schema.define(version: 2024_07_23_113926) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2024_07_22_163230) do
     t.integer "failed_attempts"
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

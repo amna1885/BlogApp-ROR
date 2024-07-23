@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    Rails.logger.debug "Params: #{params.inspect}"
     @user = User.find(params[:id])
   end
 end

@@ -10,12 +10,10 @@ class ApplicationController < ActionController::Base
 
   private
 
-
   def check_login_attempts
-    if user_signed_in? && (current_user.failed_attempts || 0) >= 5
-      flash[:alert] = "Your account has been locked due to many incorrect attempts"
-      redirect_to root_path
-    end
+    return unless user_signed_in? && (current_user.failed_attempts || 0) >= 5
+
+    flash[:alert] = 'Your account has been locked due to many incorrect attempts'
+    redirect_to root_path
   end
 end
-

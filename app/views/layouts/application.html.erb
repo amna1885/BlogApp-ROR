@@ -12,7 +12,7 @@
 
 <nav>
   <% if user_signed_in? %>
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+    <%= button_to 'Log Out', destroy_user_session_path, method: :delete %>
   <% else %>
     <%= link_to 'Log In', new_user_session_path %>
   <% end %>
@@ -21,16 +21,7 @@
     <div class="user-dashboard">
       <%= link_to 'Dashboard', dashboard_path %>
     </div>
-    <nav>
-  <% if user_signed_in? %>
-    <% if current_user.moderator? %>
-      <%= link_to 'Moderator Dashboard', moderator_dashboard_path %>
-    <% end %>
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Log In', new_user_session_path %>
-  <% end %>
-</nav>
+
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

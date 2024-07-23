@@ -310,8 +310,6 @@ Devise.setup do |config|
 
   # devise :lockable, lock_strategy: :failed_attempts, maximum_attempts: 5
 
-
-
   config.lock_strategy = :failed_attempts
   config.unlock_keys = [:email]
   config.maximum_attempts = 5
@@ -319,8 +317,6 @@ Devise.setup do |config|
 
   config.sign_out_via = :delete
   config.sign_out_all_scopes = false
-  config.redirect_url_after_sign_out = '/users/sign_in'
-
 
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
