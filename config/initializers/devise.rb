@@ -7,7 +7,7 @@
 # Devise change the default values for those options).
 #
 # Use this hook to configure devise mailer, warden hooks and so forth.
-# Many of these configuration options can be set straight in your model.
+# Many of these configuration options carequire_no_authenticationn be set straight in your model.
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -315,7 +315,6 @@ Devise.setup do |config|
   config.maximum_attempts = 5
   config.unlock_in = 5.minutes
 
-  config.sign_out_via = :delete
   config.sign_out_all_scopes = false
 
   # When set to false, does not sign a user in automatically after their password is

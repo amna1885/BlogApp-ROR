@@ -1,15 +1,21 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  include CacheControlConcern
+  load_and_authorize_resource
+
+  before_action :authenticate_user!, only: [:create]
+  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_cache_control
   def index
     @posts = Post.all
   end
 
   def show
+    @post = Post.find(params[:id])
+    @comment = @post.comments.build
   end
 
   def new
-    @post = current_user.posts.build
+    @post = Post.new
   end
 
   def create
@@ -21,9 +27,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @post.update(post_params)
       redirect_to @post, notice: 'Post was successfully updated.'
@@ -33,8 +36,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
+  end
+
+  def like
+    @post = Post.find(params[:id])
+    if current_user.likes.where(post: @post).empty?
+      current_user.like(@post)
+      redirect_to @post, notice: 'You liked this post!'
+    else
+      current_user.unlike(@post)
+      redirect_to @post, notice: 'You unliked this post!'
+    end
   end
 
   private
@@ -44,6 +59,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :content)
   end
 end

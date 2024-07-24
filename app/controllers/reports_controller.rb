@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :require_login
   def index
     @reports = Report.all
   end

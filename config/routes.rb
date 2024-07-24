@@ -1,26 +1,20 @@
 Rails.application.routes.draw do
-  # Mount RailsAdmin at /admin
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
-  # Devise routes for user authentication
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users
+  get '/users/sign_out' => 'devise/sessions#destroy'
 
   root 'dashboard#index'
-  # RESTful routes for users with only specified actions
-  resources :users, only: %i[show edit update]
+  get 'admin/dashboard', to: 'admin#dashboard', as: 'admin_dashboard'
 
-  # RESTful routes for posts with nested routes for comments
+  resources :users, only: %i[show edit update]
   resources :posts do
     resources :comments, only: %i[create edit update destroy]
-    post 'like', to: 'likes#create', as: 'like'
-    delete 'like', to: 'likes#destroy', as: 'unlike'
+    member do
+      get :like
+      put :like
+      delete :unlike
+    end
   end
 
-  # Custom route for the dashboard
   get 'dashboard', to: 'dashboard#index', as: 'dashboard'
-
-  # Optionally, set a root path for your application
-  # root to: 'home#index'
 end

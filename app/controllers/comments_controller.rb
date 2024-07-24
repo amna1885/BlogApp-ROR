@@ -1,14 +1,21 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: %i[show edit update destroy]
+  before_action :authenticate_user! # Ensure user is authenticated
+
+  def new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build
+  end
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(comment_params)
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
 
     if @comment.save
       redirect_to post_path(@post), notice: 'Comment was successfully created.'
     else
-      render :new
+      render 'posts/show'
     end
   end
 
@@ -42,6 +49,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:content, :attachment)
+    params.require(:comment).permit(:content, :attachment, :user_id)
   end
 end
