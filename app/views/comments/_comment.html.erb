@@ -1,4 +1,6 @@
-<p>
-  <strong><%= comment.name %></strong>
-  <%= comment.content %>
-</p>
+<div class="comment">
+  <p><strong><%= comment.user.name %>:</strong></p>
+  <p><%= comment.content %></p>
+  <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) if can?(:update, comment) %>
+  <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, data: { confirm: 'Are you sure?' } if can?(:destroy, comment) %>
+</div>

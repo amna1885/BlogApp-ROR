@@ -5,5 +5,5 @@
 <h2>Add a comment</h2>
 
 <%= form_with model: [ @post, @post.comments.build ] do |f| %> <%= f.label :name
-%> <%= f.text_field :name %> <%= f.label :content %> <%= f.text_area :content %>
+%> <%= f.text_field :content %> <%= f.label :content %> <%= f.text_area :content %>
 <%= f.submit %> <% end %>

@@ -1,3 +1,4 @@
+<!-- posts/show.html.erb -->
 <h1><%= @post.title %></h1>
 
 <p><%= @post.content %></p>
@@ -7,7 +8,6 @@
 <% end %>
 
 <h2>Comments</h2>
-
 <ul>
   <% @post.comments.each do |comment| %>
     <li>
@@ -15,8 +15,10 @@
       <% if comment.attachment.present? %>
         <%= link_to 'Download Attachment', comment.attachment_url %>
       <% end %>
-      <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-      <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if comment.id.present? %>
+        <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+        <%= button_to 'Delete', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </li>
   <% end %>
 </ul>
@@ -26,10 +28,14 @@
     <%= link_to 'Like', like_post_path(@post), method: :post %>
   <% else %>
     <%= link_to 'Unlike', like_post_path(@post), method: :delete %>
+    You liked this post!
   <% end %>
 <% end %>
 
 <%= render 'comments/form', post: @post, comment: Comment.new %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<p>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %> |
+  <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

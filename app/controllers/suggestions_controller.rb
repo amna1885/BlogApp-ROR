@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   before_action :set_post
-  before_action :set_suggestion, only: [:update, :destroy, :reject, :reply]
+  before_action :set_suggestion, only: %i[update destroy reject reply]
 
   def create
     @suggestion = @post.suggestions.build(suggestion_params)

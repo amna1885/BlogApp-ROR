@@ -1,9 +1,33 @@
+<!-- posts/index.html.erb -->
 <h1>Posts</h1>
 
-<%= link_to 'New Post', new_post_path %>
+<p><%= link_to 'Create New Post', new_post_path %></p>
 
 <ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post %></li>
+  <% if current_user.is_moderator? %>
+    <% @posts.each do |post| %>
+            <%= post.approved %>
+
+      <li>
+        <%= link_to post.title, post %>
+        <% if post.approved? %>
+          <%= button_to "Reject", reject_post_path(post), method: :patch %>
+        <% else %>
+          <%= button_to "Approve", approve_post_path(post), method: :patch %>
+        <% end %>
+      </li>
+    <% end %>
+  <% else %>
+    <% @posts.where(approved: true).each do |post| %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
+    <% end %>
   <% end %>
 </ul>
+
+<% if current_user.has_role?(:user) || current_user.has_role?(:admin) %>
+  <p>
+    <%= link_to "Pending Approval", pending_approval_posts_path %>
+  </p>
+<% end %>

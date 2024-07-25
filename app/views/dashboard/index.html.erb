@@ -1,22 +1,43 @@
-<h1>Dashboard</h1>
+<h1>Dashboard of BlogApp</h1>
 
 <h2>Recent Posts</h2>
 <ul>
-  <% @posts.each do |post| %>
-    <li><%= link_to post.title, post %></li>
+  <% @recent_posts.each do |post| %>
+    <%# <% if current_user.is_moderator? %>
+      <li>
+        <%= link_to post.title, post %>
+            <% if post.approved %>
+            <p> "This post has been approved" </p>
+          <% else %>
+            <p>This post has been rejected </p>
+          <% end %>
+      </li>
   <% end %>
 </ul>
 
 <h2>Recent Comments</h2>
 <ul>
-  <% @comments.each do |comment| %>
-    <li><%= link_to comment.content, comment.post %></li>
+  <% @recent_comments.each do |comment| %>
+    <li>
+      <%= "#{comment.user.email}" %> commented <%= "#{comment.content}" %> on <%= "#{comment.post.title}" %>
+
+    </li>
   <% end %>
 </ul>
 
 <h2>Recent Likes</h2>
 <ul>
-  <% @likes.each do |like| %>
-    <li><%= link_to like.user.email, like.user %> liked <%= link_to like.post.title, like.post %></li>
+  <% @recent_likes.each do |like| %>
+    <li>
+<%= "#{like.user.email} liked #{like.post.title}" %>
+    </li>
   <% end %>
 </ul>
+
+<p>
+  <%= link_to "View All Posts", posts_path %>
+</p>
+
+<p>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
+</p>
