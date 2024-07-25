@@ -1,0 +1,11 @@
+<h1>Moderator Dashboard</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.title %>
+      <%= button_to_to "Approve", approve_moderator_path(post), method: :patch %>
+      <%= button_to "Reject", reject_moderator_path(post), method: :patch %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,10 @@
+<h1>Pending Approval</h1>
+
+<ul>
+  <% @pending_posts.each do |post| %>
+    <li>
+      <%= post.title %> - <%= post.content %>
+            (Author: <%= post.user.email %>, Created: <%= post.created_at %>)
+    </li>
+  <% end %>
+</ul>

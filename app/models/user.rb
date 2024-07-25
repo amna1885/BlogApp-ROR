@@ -18,8 +18,14 @@ class User < ApplicationRecord
 
   before_save :update_login_attempts
 
+  enum role: { user: 0, moderator: 1, admin: 2 }
+
   def admin?
     has_role?(:admin)
+  end
+
+  def is_moderator?
+    has_role?(:moderator)
   end
 
   def like(post)

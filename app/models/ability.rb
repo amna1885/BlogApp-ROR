@@ -37,11 +37,13 @@ class Ability
     elsif user.has_role? :moderator
       # can :manage, Post
       can :read, :all
+      can %i[approve reject], Post
     elsif user.has_role? :user
       can :read, :all
       can :create, Post
       can :update, Post, user_id: user.id
       can :destroy, Post, user_id: user.id
+      can :like, Post
     else
       can :read, :all
     end

@@ -1,24 +1,34 @@
 {
-  "application.js": "/packs/js/application-5b7381d6f3dcb5dbca86.js",
-  "application.js.map": "/packs/js/application-5b7381d6f3dcb5dbca86.js.map",
+  "application.js": "/packs/js/application-ebbcf50151d7337b32e7.js",
+  "application.js.map": "/packs/js/application-ebbcf50151d7337b32e7.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-5b7381d6f3dcb5dbca86.js"
+        "/packs/js/application-ebbcf50151d7337b32e7.js"
       ],
       "js.map": [
-        "/packs/js/application-5b7381d6f3dcb5dbca86.js.map"
+        "/packs/js/application-ebbcf50151d7337b32e7.js.map"
       ]
     },
     "rails_admin": {
       "js": [
-        "/packs/js/rails_admin-d101e80e693b21caad60.js"
+        "/packs/js/rails_admin-cae2510ea91fea57d2e3.js"
       ],
       "js.map": [
-        "/packs/js/rails_admin-d101e80e693b21caad60.js.map"
+        "/packs/js/rails_admin-cae2510ea91fea57d2e3.js.map"
+      ]
+    },
+    "trix": {
+      "js": [
+        "/packs/js/trix-826685b93932c72b461d.js"
+      ],
+      "js.map": [
+        "/packs/js/trix-826685b93932c72b461d.js.map"
       ]
     }
   },
-  "rails_admin.js": "/packs/js/rails_admin-d101e80e693b21caad60.js",
-  "rails_admin.js.map": "/packs/js/rails_admin-d101e80e693b21caad60.js.map"
+  "rails_admin.js": "/packs/js/rails_admin-cae2510ea91fea57d2e3.js",
+  "rails_admin.js.map": "/packs/js/rails_admin-cae2510ea91fea57d2e3.js.map",
+  "trix.js": "/packs/js/trix-826685b93932c72b461d.js",
+  "trix.js.map": "/packs/js/trix-826685b93932c72b461d.js.map"
 }
