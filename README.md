@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a test project titled as BlogApp that has the following features:
 
-Things you may want to cover:
+Authentication
 
-* Ruby version
+User Roles
 
-* System dependencies
+Dashboard Page
 
-* Configuration
+Posts Page
 
-* Database creation
+Comments
 
-* Database initialization
+Suggestions
 
-* How to run the test suite
+Admin Section
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
