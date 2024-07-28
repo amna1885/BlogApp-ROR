@@ -4,6 +4,7 @@ class User < ApplicationRecord
   rolify
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :comment_likes
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :suggestions, dependent: :destroy
@@ -29,11 +30,29 @@ class User < ApplicationRecord
   end
 
   def like(post)
+    return unless post.present?
+
     likes.create!(post: post)
+  end
+
+  def liked_comment?(comment)
+    return unless comment.present?
+
+    comment_likes.create!(comment: comment)
+  end
+
+  def unlike_comment(comment)
+    return unless comment.present?
+
+    comment_likes.find_by(comment: comment)&.destroy
   end
 
   def unlike(post)
     likes.find_by(post: post).destroy
+  end
+
+  def suggestions_on_own_posts
+    Suggestion.joins(:post).where(posts: { user_id: id })
   end
 
   private

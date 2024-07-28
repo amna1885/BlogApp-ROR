@@ -1,33 +1,35 @@
-<!-- posts/index.html.erb -->
 <h1>Posts</h1>
 
 <p><%= link_to 'Create New Post', new_post_path %></p>
 
 <ul>
   <% if current_user.is_moderator? %>
-    <% @posts.each do |post| %>
-            <%= post.approved %>
-
+    <% @posts.where(approved: nil).each do |post| %>
       <li>
-        <%= link_to post.title, post %>
-        <% if post.approved? %>
-          <%= button_to "Reject", reject_post_path(post), method: :patch %>
-        <% else %>
-          <%= button_to "Approve", approve_post_path(post), method: :patch %>
-        <% end %>
+        <%= link_to post.title, post_path(post) %>
+        <%= button_to "Approve", approve_post_path(post), method: :patch %>
+        <%= button_to "Reject", reject_post_path(post), method: :patch %>
       </li>
     <% end %>
   <% else %>
     <% @posts.where(approved: true).each do |post| %>
       <li>
-        <%= link_to post.title, post %>
+        <%= link_to post.title, post_path(post) %>
       </li>
     <% end %>
   <% end %>
 </ul>
 
-<% if current_user.has_role?(:user) || current_user.has_role?(:admin) %>
+<% if current_user %>
   <p>
     <%= link_to "Pending Approval", pending_approval_posts_path %>
   </p>
 <% end %>
+
+  <p>
+    <%= link_to "Reported Posts", reported_posts_path %>
+  </p>
+
+<p>
+  <%= link_to "Reported Comments", reported_comments_path %>
+</p>

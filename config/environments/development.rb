@@ -1,4 +1,4 @@
-require "active_support/core_ext/integer/time"
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -16,7 +16,7 @@ Rails.application.configure do
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
-  if Rails.root.join('tmp', 'caching-dev.txt').exist?
+  if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
@@ -51,18 +51,16 @@ Rails.application.configure do
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
 
-
   config.action_mailer.delivery_method = :smtp
 
-
   config.action_mailer.smtp_settings = {
-  address: 'smtp.gmail.com',
-  port: 587,
-  user_name: 'aamnax114@gmail.com',
-  password: 'ughe ldnu enhc gadp',
-  authentication: 'plain',
-  enable_starttls_auto: true
-}
+    address: 'smtp.gmail.com',
+    port: 587,
+    user_name: 'aamnax114@gmail.com',
+    password: 'ughe ldnu enhc gadp',
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
@@ -90,4 +88,10 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  Rails.application.configure do
+    config.cloudinary_api_key = '274658269941387'
+    config.cloudinary_api_secret = 'Oa3ISWmOCXDzHm5iK4yqBR1Qy5M'
+    config.cloudinary_cloud_name = 'dvv93vh8p'
+  end
 end

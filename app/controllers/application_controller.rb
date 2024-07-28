@@ -9,12 +9,11 @@ class ApplicationController < ActionController::Base
   before_action :set_cache_control
   before_action :check_login, except: [:new]
 
-  # before_action :admin_only
-  def after_sign_in_path_for(resource)
-    dashboard_path # or another path you want to redirect to after sign-in
+  def after_sign_in_path_for(_resource)
+    dashboard_path
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     new_user_session_path
   end
 
@@ -38,8 +37,3 @@ def check_login_attempts
   flash[:alert] = 'Your account has been locked due to many incorrect attempts'
   redirect_to root_path
 end
-
-# def user_not_authorized
-#   flash[:alert] = 'You are not authorized to perform this action.'
-#   redirect_to(request.referer || root_path)
-# end

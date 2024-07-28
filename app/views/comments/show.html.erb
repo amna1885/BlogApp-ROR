@@ -1,9 +1,16 @@
-<h2>Comments</h2>
+<p>
+  <%= @comment.content %>
+  <br>
+  Commented by: <%= @comment.user.email %>
+</p>
 
-<%= render @post.comments %>
-
-<h2>Add a comment</h2>
-
-<%= form_with model: [ @post, @post.comments.build ] do |f| %> <%= f.label :name
-%> <%= f.text_field :content %> <%= f.label :content %> <%= f.text_area :content %>
-<%= f.submit %> <% end %>
+<% if current_user == @comment.user || current_user.admin? %>
+  <% if @comment.reported? %>
+    <% if current_user.moderator? %>
+      <%= link_to 'Unreport', unreport_comment_path(@comment), method: :patch %>
+    <% end %>
+    <% end %>
+  <% else %>
+    <%= button_to 'Report', report_comment_path(@comment), method: :patch %>
+<% end %>
+    <%= button_to 'Report', report_comment_path(@comment), method: :patch %>

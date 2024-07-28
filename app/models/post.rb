@@ -1,8 +1,12 @@
 class Post < ApplicationRecord
-  mount_uploader :attachment, AttachmentUploader
+  # mount_uploader :attachment, AttachmentUploader
+  attr_accessor :attachment
+
   belongs_to :user
+  belongs_to :reporter, class_name: 'User', optional: true
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :suggestions, dependent: :destroy
   accepts_nested_attributes_for :comments
   has_rich_text :description
 
@@ -15,10 +19,11 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { minimum: 10, message: 'must be at least 10 characters long.' }
   validates :approved, inclusion: { in: [true, false] }, on: :update
 
-  scope :pending_approval, -> { where(approved: false) }
+  scope :pending_approval, -> { where(approved: false, status: 'pending') }
   scope :approved, -> { where(approved: true) }
   scope :recent_posts, -> { order(created_at: :desc).limit(5) }
   scope :moderated, -> { where.not(approved: nil) }
+  scope :reported_posts, -> { where(reported: true) }
 
   def approve
     update(approved: true)
