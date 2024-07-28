@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Post < ApplicationRecord
   # mount_uploader :attachment, AttachmentUploader
   attr_accessor :attachment

@@ -1,6 +1,17 @@
 <div class="comment">
-  <p><strong><%= comment.user.email %>:</strong></p>
-  <p><%= comment.content %></p>
-  <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) if can?(:update, comment) %>
-  <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
+  <div class="content">
+    <a class="author"><%= comment.user.email %></a>
+    <div class="metadata">
+      <div class="date"></div>
+    </div>
+    <div class="text">
+      <%= comment.content %>
+    </div>
+    <div class="actions">
+      <% if can?(:update, comment) %>
+        <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), class: "ui mini button" %>
+      <% end %>
+      <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, class: "ui mini button" %>
+    </div>
+  </div>
 </div>

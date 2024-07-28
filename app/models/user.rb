@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :roles, dependent: :destroy
 
@@ -30,19 +32,19 @@ class User < ApplicationRecord
   end
 
   def like(post)
-    return unless post.present?
+    return if post.blank?
 
     likes.create!(post: post)
   end
 
   def liked_comment?(comment)
-    return unless comment.present?
+    return if comment.blank?
 
     comment_likes.create!(comment: comment)
   end
 
   def unlike_comment(comment)
-    return unless comment.present?
+    return if comment.blank?
 
     comment_likes.find_by(comment: comment)&.destroy
   end

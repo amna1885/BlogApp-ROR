@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_post, only: %i[create edit update destroy show new]
   before_action :set_comment, only: %i[show edit update destroy]
@@ -27,11 +29,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @comment.update(comment_params)

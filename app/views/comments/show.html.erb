@@ -1,16 +1,19 @@
-<p>
-  <%= @comment.content %>
-  <br>
-  Commented by: <%= @comment.user.email %>
-</p>
+<div class="ui segment">
+  <p>
+    <%= @comment.content %>
+    <br>
+    Commented by: <%= @comment.user.email %>
+  </p>
+</div>
 
 <% if current_user == @comment.user || current_user.admin? %>
-  <% if @comment.reported? %>
-    <% if current_user.moderator? %>
-      <%= link_to 'Unreport', unreport_comment_path(@comment), method: :patch %>
+  <div class="ui buttons">
+    <% if @comment.reported? %>
+      <% if current_user.moderator? %>
+        <%= link_to 'Unreport', unreport_comment_path(@comment), method: :patch, class: "ui button" %>
+      <% end %>
+    <% else %>
+      <%= button_to 'Report', report_comment_path(@comment), method: :patch, class: "ui button" %>
     <% end %>
-    <% end %>
-  <% else %>
-    <%= button_to 'Report', report_comment_path(@comment), method: :patch %>
+  </div>
 <% end %>
-    <%= button_to 'Report', report_comment_path(@comment), method: :patch %>

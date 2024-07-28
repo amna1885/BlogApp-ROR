@@ -1,21 +1,19 @@
 <% @comments.each do |comment| %>
-  <p>
-    <%= comment.content %>
-    <br>
-    Commented by: <%= comment.user.email %>
-  </p>
-
-    <% if comment.reported? %>
-      <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch %>
-    <% else %>
-      <%= button_to 'Report', report_comment_path(comment), method: :patch %>
-    <% end %>
-  <% if current_user.moderator? %>
-    <% if comment.reported? %>
-      <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch %>
-  <% else %>
-    <%= button_to 'Report', report_comment_path(comment), method: :patch %>
+  <div class="ui segment">
+    <p>
+      <%= comment.content %>
+      <br>
+      Commented by: <%= comment.user.email %>
+    </p>
+    <div class="ui buttons">
+      <% if comment.reported? %>
+        <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch, class: "ui button" %>
+      <% else %>
+        <%= button_to 'Report', report_comment_path(comment), method: :patch, class: "ui button" %>
+      <% end %>
+      <% if current_user.moderator? %>
+        <%= link_to 'Delete', comment, method: :delete, class: "ui button" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-    <% end %>
-    <% end %>
-

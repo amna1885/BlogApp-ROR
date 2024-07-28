@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SuggestionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i[create update destroy reply edit reject]

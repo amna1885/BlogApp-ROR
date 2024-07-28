@@ -1,4 +1,4 @@
-<h1>Edit Suggestion</h1>
+<h1 class="ui header">Edit Suggestion</h1>
 <%= render 'form', post: @post, suggestion: @suggestion %>
-<%= button_to 'Reject Suggestion', reject_post_suggestion_path(@post, @suggestion), method: :patch %>
-<%= link_to 'Back', @post %>
+<%= button_to 'Reject Suggestion', reject_post_suggestion_path(@post, @suggestion), method: :patch, class: "ui button" %>
+<%= link_to 'Back', @post, class: "ui button" %>

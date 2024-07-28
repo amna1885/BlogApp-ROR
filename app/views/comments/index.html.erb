@@ -1,9 +1,11 @@
-<h1>Comments</h1>
+<h1 class="ui header">Comments</h1>
 
-<ul>
+<div class="ui comments">
   <% @comments.each do |comment| %>
-    <li>
-      <%= comment.content %>
-    </li>
+    <div class="comment">
+      <div class="text">
+        <%= comment.content %>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>

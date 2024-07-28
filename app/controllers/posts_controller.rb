@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   include CacheControlConcern
   load_and_authorize_resource

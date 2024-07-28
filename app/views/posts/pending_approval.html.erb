@@ -1,11 +1,15 @@
-<h1>Pending Approval</h1>
-<ul>
+<h1 class="ui header">Pending Approval</h1>
+
 <% if @pending_posts.empty? %>
-  <p>No post under review</p>
+  <p class="ui message">No post under review</p>
 <% else %>
+  <div class="ui divided list">
     <% @pending_posts.each do |post| %>
-      <li><%= post.title %> - <%= post.status %>
-      </li>
+      <div class="item">
+        <div class="content">
+          <%= post.title %> - <%= post.status %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% end %>

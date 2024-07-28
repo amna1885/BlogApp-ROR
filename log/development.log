@@ -71982,3 +71982,1963 @@ Processing by DashboardController#index as HTML
 Completed 200 OK in 13ms (Views: 8.7ms | ActiveRecord: 1.2ms | Allocations: 6141)
 
 
+Started GET "/" for ::1 at 2024-07-29 03:16:48 +0500
+Processing by DashboardController#index as HTML
+Creating scope :approved. Overwriting existing method Post.approved.
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 5483)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 11335)
+Completed 200 OK in 37ms (Views: 12.0ms | ActiveRecord: 0.7ms | Allocations: 34677)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:16:57 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1170)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4310)
+Completed 200 OK in 18ms (Views: 8.5ms | ActiveRecord: 0.9ms | Allocations: 8121)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:17:02 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 2.0ms | Allocations: 329)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 3229)
+Completed 200 OK in 21ms (Views: 14.8ms | ActiveRecord: 1.0ms | Allocations: 5257)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:17:04 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3392)
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 0.8ms | Allocations: 5424)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:17:05 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 3.0ms | Allocations: 323)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3219)
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 0.8ms | Allocations: 5051)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:17:08 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3392)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 0.8ms | Allocations: 5422)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:17:09 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 1.6ms | Allocations: 537)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4089)
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 0.7ms | Allocations: 6972)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:17:11 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 512)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3393)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.5ms | Allocations: 5550)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:17:11 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 720)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3639)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.1ms | Allocations: 5106)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:17:42 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1356)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 5005)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.9ms | Allocations: 7788)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:17:44 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3996)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 7085)
+Completed 200 OK in 21ms (Views: 15.4ms | ActiveRecord: 0.7ms | Allocations: 9910)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:17:50 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3782)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 0.8ms | Allocations: 6107)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:17:54 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1823)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 4691)
+Completed 200 OK in 20ms (Views: 13.2ms | ActiveRecord: 0.7ms | Allocations: 6371)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:17:56 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 3392)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.4ms | Allocations: 5430)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:18:01 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1823)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4691)
+Completed 200 OK in 18ms (Views: 12.9ms | ActiveRecord: 0.6ms | Allocations: 6351)
+
+
+Started POST "/posts" for ::1 at 2024-07-29 03:18:06 +0500
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"amna", "content"=>"dfghjk", "description"=>""}, "commit"=>"Create Post"}
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2939)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 5733)
+Completed 200 OK in 23ms (Views: 10.6ms | ActiveRecord: 0.6ms | Allocations: 10034)
+
+
+Started POST "/posts" for ::1 at 2024-07-29 03:18:09 +0500
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"amna", "content"=>"dfghjkfcgvhbj", "description"=>""}, "commit"=>"Create Post"}
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 2376)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 5171)
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 0.7ms | Allocations: 7701)
+
+
+Started POST "/posts" for ::1 at 2024-07-29 03:18:14 +0500
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"vghbamna", "content"=>"dfghjkfcgvhbjgh", "description"=>""}, "commit"=>"Create Post"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 10.1ms | Allocations: 2490)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:18:14 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 709)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3633)
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 1.3ms | Allocations: 5128)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:18:17 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 10954)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 13890)
+Completed 200 OK in 35ms (Views: 12.1ms | ActiveRecord: 0.9ms | Allocations: 27342)
+
+
+Started GET "/posts/6/edit" for ::1 at 2024-07-29 03:18:26 +0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/edit.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2228)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 5085)
+Completed 200 OK in 16ms (Views: 11.8ms | ActiveRecord: 0.7ms | Allocations: 6874)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:18:55 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1112)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4701)
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 1.0ms | Allocations: 8060)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:18:56 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 2.0ms | Allocations: 451)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3347)
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 1.0ms | Allocations: 5352)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:00 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3392)
+Completed 200 OK in 17ms (Views: 10.0ms | ActiveRecord: 1.0ms | Allocations: 5424)
+
+
+Started GET "/posts/6/edit" for ::1 at 2024-07-29 03:19:22 +0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/edit.html.erb within layouts/application (Duration: 6.0ms | Allocations: 3079)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 6644)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 0.7ms | Allocations: 9432)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:25 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3782)
+Completed 200 OK in 17ms (Views: 9.5ms | ActiveRecord: 0.9ms | Allocations: 6099)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:26 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 3394)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 0.8ms | Allocations: 5428)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:30 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 2.0ms | Allocations: 338)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3235)
+Completed 200 OK in 21ms (Views: 12.1ms | ActiveRecord: 1.0ms | Allocations: 5076)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:32 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3397)
+Completed 200 OK in 15ms (Views: 9.1ms | ActiveRecord: 0.9ms | Allocations: 5427)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:19:33 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 1.7ms | Allocations: 494)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 4048)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.7ms | Allocations: 5858)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:34 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 512)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3394)
+Completed 200 OK in 20ms (Views: 11.6ms | ActiveRecord: 1.1ms | Allocations: 5563)
+
+
+Started GET "/posts/6/edit" for ::1 at 2024-07-29 03:19:36 +0500
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/edit.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2178)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5036)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 0.8ms | Allocations: 6625)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:19:38 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 4183)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 7040)
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 1.1ms | Allocations: 9112)
+
+
+Started PATCH "/posts/6/report" for ::1 at 2024-07-29 03:19:40 +0500
+Processing by PostsController#report as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.7ms | Allocations: 2755)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:19:40 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1355)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4559)
+Completed 200 OK in 14ms (Views: 8.8ms | ActiveRecord: 0.9ms | Allocations: 7070)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:43 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 512)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3393)
+Completed 200 OK in 8ms (Views: 4.4ms | ActiveRecord: 0.4ms | Allocations: 5605)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:45 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.9ms | Allocations: 110)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 3006)
+Completed 200 OK in 16ms (Views: 10.3ms | ActiveRecord: 1.0ms | Allocations: 4718)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:46 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3392)
+Completed 200 OK in 12ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 5430)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:19:47 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3619)
+Completed 200 OK in 12ms (Views: 6.5ms | ActiveRecord: 1.3ms | Allocations: 5101)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:19:48 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 3619)
+Completed 200 OK in 16ms (Views: 9.8ms | ActiveRecord: 1.3ms | Allocations: 5102)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:19:50 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2621)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 5478)
+Completed 200 OK in 16ms (Views: 12.1ms | ActiveRecord: 1.0ms | Allocations: 7428)
+
+
+Started PATCH "/posts/6/report" for ::1 at 2024-07-29 03:19:53 +0500
+Processing by PostsController#report as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 1.1ms | Allocations: 2785)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:19:53 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3623)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 1.0ms | Allocations: 5096)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:19:55 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3392)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 0.7ms | Allocations: 5422)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:56 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.7ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 3001)
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 0.9ms | Allocations: 4698)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:59 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.8ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3001)
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 0.9ms | Allocations: 4694)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:59 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.6ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 3001)
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 1.0ms | Allocations: 4692)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:19:59 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.5ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3001)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 4704)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:20:04 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 1.8ms | Allocations: 436)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 4130)
+Completed 200 OK in 24ms (Views: 13.9ms | ActiveRecord: 1.3ms | Allocations: 7151)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:20:07 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1355)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4554)
+Completed 200 OK in 19ms (Views: 12.4ms | ActiveRecord: 1.2ms | Allocations: 7145)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:20:09 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 8.7ms | Allocations: 4296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 7153)
+Completed 200 OK in 24ms (Views: 17.1ms | ActiveRecord: 1.2ms | Allocations: 9398)
+
+
+Started PATCH "/posts/6/report" for ::1 at 2024-07-29 03:20:11 +0500
+Processing by PostsController#report as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms | Allocations: 2744)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:20:11 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3624)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.6ms | Allocations: 5122)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:20:13 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 900)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3781)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 0.5ms | Allocations: 5959)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:20:14 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.9ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 3001)
+Completed 200 OK in 18ms (Views: 11.1ms | ActiveRecord: 1.1ms | Allocations: 4693)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:20:28 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3405)
+Completed 200 OK in 13ms (Views: 8.3ms | ActiveRecord: 0.7ms | Allocations: 5441)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:20:31 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 1.9ms | Allocations: 397)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3293)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 0.9ms | Allocations: 5135)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:20:33 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3392)
+Completed 200 OK in 19ms (Views: 10.9ms | ActiveRecord: 1.2ms | Allocations: 5418)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:20:36 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3619)
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 1.3ms | Allocations: 5102)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:20:39 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 1930)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:20:39 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2411)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 5341)
+Completed 200 OK in 21ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 8518)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:20:41 +0500
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 471)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:20:41 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1286)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3970)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 4827)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:21:43 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2375)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5754)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms | Allocations: 9131)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-07-29 03:21:49 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amna185@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 213ms (ActiveRecord: 0.2ms | Allocations: 4333)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:21:50 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1364)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 4568)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.4ms | Allocations: 7113)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:21:52 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4254)
+Completed 200 OK in 22ms (Views: 12.2ms | ActiveRecord: 1.3ms | Allocations: 7472)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:21:54 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 1.1ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3212)
+Completed 200 OK in 13ms (Views: 7.4ms | ActiveRecord: 0.7ms | Allocations: 5232)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:21:55 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3392)
+Completed 200 OK in 13ms (Views: 6.9ms | ActiveRecord: 0.8ms | Allocations: 5420)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:25:04 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 0.9ms | Allocations: 494)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4498)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.4ms | Allocations: 6625)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:25:06 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 4250)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.5ms | Allocations: 7408)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:25:07 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.8ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3212)
+Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 5247)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:25:09 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 3392)
+Completed 200 OK in 22ms (Views: 11.6ms | ActiveRecord: 1.6ms | Allocations: 5422)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:25:10 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1355)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 4554)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.8ms | Allocations: 7020)
+
+
+Started GET "/posts/5" for ::1 at 2024-07-29 03:25:13 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 4298)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7155)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 0.6ms | Allocations: 9382)
+
+
+Started DELETE "/posts/5" for ::1 at 2024-07-29 03:25:15 +0500
+Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"5"}
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 13ms (ActiveRecord: 4.7ms | Allocations: 4701)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:25:15 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 3397)
+Completed 200 OK in 9ms (Views: 4.8ms | ActiveRecord: 0.5ms | Allocations: 5464)
+
+
+Started GET "/posts/5" for ::1 at 2024-07-29 03:25:16 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1087)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Post with 'id'=5):
+  
+activerecord (6.1.7.8) lib/active_record/core.rb:353:in `find'
+cancancan (3.6.1) lib/cancan/model_adapters/abstract_adapter.rb:24:in `find'
+cancancan (3.6.1) lib/cancan/controller_resource_finder.rb:13:in `find_resource'
+cancancan (3.6.1) lib/cancan/controller_resource_loader.rb:110:in `load_resource_instance'
+cancancan (3.6.1) lib/cancan/controller_resource_loader.rb:18:in `load_resource'
+cancancan (3.6.1) lib/cancan/controller_resource.rb:33:in `load_and_authorize_resource'
+cancancan (3.6.1) lib/cancan/controller_resource.rb:17:in `block in add_before_action'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:427:in `instance_exec'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:427:in `block in make_lambda'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (6.1.7.8) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:512:in `block in invoke_before'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:512:in `each'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:512:in `invoke_before'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:115:in `block in run_callbacks'
+actiontext (6.1.7.8) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (6.1.7.8) lib/action_text/engine.rb:59:in `block (4 levels) in <class:Engine>'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:126:in `instance_exec'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:126:in `block in run_callbacks'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:137:in `run_callbacks'
+actionpack (6.1.7.8) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (6.1.7.8) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (6.1.7.8) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (6.1.7.8) lib/active_support/notifications.rb:203:in `block in instrument'
+activesupport (6.1.7.8) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (6.1.7.8) lib/active_support/notifications.rb:203:in `instrument'
+actionpack (6.1.7.8) lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+actionpack (6.1.7.8) lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+activerecord (6.1.7.8) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (6.1.7.8) lib/abstract_controller/base.rb:165:in `process'
+actionview (6.1.7.8) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.1.7.8) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7.8) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7.8) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7.8) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7.8) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7.8) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7.8) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7.8) lib/action_dispatch/routing/route_set.rb:842:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.9) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/http/permissions_policy.rb:22:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/http/content_security_policy.rb:19:in `call'
+rack (2.2.9) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.9) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (6.1.7.8) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.8) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.8) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.8) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.8) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.5.1) lib/sprockets/rails/quiet_assets.rb:17:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/method_override.rb:24:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.8) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+webpacker (5.4.4) lib/webpacker/dev_server_proxy.rb:25:in `perform_request'
+rack-proxy (0.7.7) lib/rack/proxy.rb:87:in `call'
+railties (6.1.7.8) lib/rails/engine.rb:539:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/dashboard" for ::1 at 2024-07-29 03:25:19 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3619)
+Completed 200 OK in 9ms (Views: 5.5ms | ActiveRecord: 1.0ms | Allocations: 5087)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:25:21 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 3620)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.5ms | Allocations: 5097)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:26:34 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1360)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 5014)
+Completed 200 OK in 21ms (Views: 13.8ms | ActiveRecord: 1.2ms | Allocations: 7797)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:26:36 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1112)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 4256)
+Completed 200 OK in 18ms (Views: 11.2ms | ActiveRecord: 1.3ms | Allocations: 7468)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:26:38 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2596)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5465)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.3ms | Allocations: 7425)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:26:40 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3394)
+Completed 200 OK in 15ms (Views: 6.8ms | ActiveRecord: 1.1ms | Allocations: 5461)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:26:42 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 709)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3629)
+Completed 200 OK in 15ms (Views: 9.2ms | ActiveRecord: 1.1ms | Allocations: 5106)
+
+
+Started GET "/posts/3" for ::1 at 2024-07-29 03:26:45 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 4390)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 7247)
+Completed 200 OK in 29ms (Views: 20.7ms | ActiveRecord: 1.6ms | Allocations: 9303)
+
+
+Started GET "/posts/3/like" for ::1 at 2024-07-29 03:26:49 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 20ms (ActiveRecord: 5.2ms | Allocations: 5693)
+
+
+Started GET "/posts/3" for ::1 at 2024-07-29 03:26:49 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2626)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5487)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 0.8ms | Allocations: 7420)
+
+
+Started GET "/posts/3/like" for ::1 at 2024-07-29 03:26:51 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"3"}
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 14ms (ActiveRecord: 6.5ms | Allocations: 2188)
+
+
+Started GET "/posts/3" for ::1 at 2024-07-29 03:26:52 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2624)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 5484)
+Completed 200 OK in 15ms (Views: 8.3ms | ActiveRecord: 1.0ms | Allocations: 7409)
+
+
+Started PATCH "/posts/3/report" for ::1 at 2024-07-29 03:26:57 +0500
+Processing by PostsController#report as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 30ms (ActiveRecord: 9.9ms | Allocations: 3414)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:26:57 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 700)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 3623)
+Completed 200 OK in 29ms (Views: 17.9ms | ActiveRecord: 2.6ms | Allocations: 5102)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:26:59 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3392)
+Completed 200 OK in 17ms (Views: 9.4ms | ActiveRecord: 1.1ms | Allocations: 5420)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:27:00 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 2.6ms | Allocations: 935)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 3803)
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 1.0ms | Allocations: 5626)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:27:11 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1134)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4731)
+Completed 200 OK in 14ms (Views: 8.4ms | ActiveRecord: 0.6ms | Allocations: 7763)
+
+
+Started PATCH "/posts/3/unpublish" for ::1 at 2024-07-29 03:27:14 +0500
+Processing by PostsController#unpublish as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+Redirected to http://localhost:3000/posts/reported
+Completed 302 Found in 6ms (ActiveRecord: 0.5ms | Allocations: 2266)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:27:14 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 1.6ms | Allocations: 696)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3569)
+Completed 200 OK in 13ms (Views: 6.4ms | ActiveRecord: 0.8ms | Allocations: 5327)
+
+
+Started GET "/admin" for ::1 at 2024-07-29 03:27:16 +0500
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/rails_admin/main/dashboard.html.erb within layouts/rails_admin/application (Duration: 23.1ms | Allocations: 20925)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/content.html.erb (Duration: 3.1ms | Allocations: 834)
+  Rendered layout /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/application.html.erb (Duration: 52.1ms | Allocations: 32400)
+Completed 200 OK in 90ms (Views: 53.4ms | ActiveRecord: 1.2ms | Allocations: 90884)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:27:17 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 3.0ms | Allocations: 716)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3662)
+Completed 200 OK in 25ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 5640)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:27:18 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.9ms | Allocations: 696)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3569)
+Completed 200 OK in 39ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 5269)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:27:20 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1358)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4557)
+Completed 200 OK in 23ms (Views: 15.8ms | ActiveRecord: 1.6ms | Allocations: 7017)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:27:22 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 902)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 3788)
+Completed 200 OK in 18ms (Views: 10.2ms | ActiveRecord: 1.7ms | Allocations: 6129)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:27:24 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 1.6ms | Allocations: 493)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 4047)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.6ms | Allocations: 5848)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:27:26 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 512)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3393)
+Completed 200 OK in 14ms (Views: 6.3ms | ActiveRecord: 0.9ms | Allocations: 5561)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:28:55 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1357)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5011)
+Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 1.2ms | Allocations: 7829)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:29:11 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1404)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 5056)
+Completed 200 OK in 16ms (Views: 10.0ms | ActiveRecord: 0.9ms | Allocations: 7942)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:29:15 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 1312)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:29:15 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2375)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 5307)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 8437)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:29:17 +0500
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:29:17 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1319)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3998)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 4864)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-07-29 03:29:24 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amna185@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 218ms (ActiveRecord: 0.2ms | Allocations: 4122)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:29:24 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3688)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 5238)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:29:26 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 2781)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 5972)
+Completed 200 OK in 22ms (Views: 17.8ms | ActiveRecord: 0.5ms | Allocations: 8690)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:29:28 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 753)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3672)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 0.9ms | Allocations: 5260)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:29:32 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 900)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3781)
+Completed 200 OK in 15ms (Views: 7.8ms | ActiveRecord: 1.0ms | Allocations: 5974)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:29:33 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3662)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 1.2ms | Allocations: 5135)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:32:05 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 5045)
+Completed 200 OK in 13ms (Views: 8.9ms | ActiveRecord: 0.8ms | Allocations: 7814)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:32:07 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1111)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 4250)
+Completed 200 OK in 15ms (Views: 8.7ms | ActiveRecord: 0.8ms | Allocations: 7436)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:32:09 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 763)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 3682)
+Completed 200 OK in 16ms (Views: 11.1ms | ActiveRecord: 1.3ms | Allocations: 5268)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:32:10 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.4ms | Allocations: 4567)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 7424)
+Completed 200 OK in 26ms (Views: 17.4ms | ActiveRecord: 1.4ms | Allocations: 9542)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:32:52 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2063)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2120)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.9ms | Allocations: 5282)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class="ui container">
+  <div class="ui card">
+    <div class="image">
+      <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
+      <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
+    </div>
+    <div class="content">
+      <h1 class="ui header"><%= @post.title %></h1>
+      <p><%= @post.content %></p>
+      <% if @post.attachment.present? %>
+        <%= link_to 'Download Attachment', @post.attachment_url, class: "ui button" %>
+      <% end %>
+    </div>
+    <div class="extra content">
+      <h2 class="ui header">Comments</h2>
+      <ul class="ui list">
+        <% @post.comments.each do |comment| %>
+          <% if!comment.reported? %>
+            <li class="item">
+              <%= comment.content %>
+              <% if comment.id.present? %>
+                <%= link_to 'Edit', edit_post_comment_path(@post, comment), class: "ui button" %> |
+                <%= link_to 'Go To Report', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
+              <% end %>
+              <% if current_user.comment_likes.exists?(comment: comment) %>
+                <%= button_to "Unlike", unlike_comment_path(comment), method: :patch, class: "ui button" %>
+              <% else %>
+                <%= button_to "Like", like_comment_path(comment), method: :patch, class: "ui button" %>
+              <% end %>
+              <%= link_to 'Reply', new_post_comment_path(@post), class: "ui button" %>
+              <% if comment.children.any? %>
+                <ul class="ui list">
+                  <% comment.children.each do |child| %>
+                    <li class="item">
+                      <%= child.content %>
+                      <% if child.id.present? %>
+                        <%= link_to 'Edit', edit_post_comment_path(@post, child), class: "ui button" %> |
+                        <%= link_to 'Delete', post_comment_path(@post, child), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
+                      <% end %>
+                      <% if current_user.comment_likes.exists?(comment: child) %>
+                        <%= button_to "Unlike", unlike_comment_path(child), method: :patch, class: "ui button" %>
+                      <% else %>
+                        <%= button_to "Like", like_comment_path(child), method: :patch, class: "ui button" %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="extra content">
+      <% if current_user.likes.where(post: @post).empty? %>
+        <%= link_to 'Like', like_post_path(@post), method: :post, class: "ui button" %>
+      <% else %>
+        <%= link_to 'Unlike', like_post_path(@post), method: :delete, class: "ui button" %>
+        You liked this post!
+      <% end %>
+    </div>
+    <div class="extra content">
+      <ul class="ui list">
+        <% @reported_posts.each do |post| %>
+          <li class="item">
+            <%= post.title %>
+            <% if post.reporter %>
+              (reported by <%= post.reporter %>)
+            <% else %>
+              (no reporter)
+            <% end %>
+            <%= link_to 'View', post_path(post), class: "ui button" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <%= render 'comments/form', post: @post, comment: Comment.new %>
+    </br>
+    <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
+      <%= form.text_area :content, placeholder: "Add a suggestion" %>
+      <%= form.submit "Submit Suggestion", class: "ui button" %>
+    <% end %>
+    <% @post.suggestions.each do |suggestion| %>
+      <div class="ui segment">
+        <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
+        <% if suggestion.user == current_user %>
+          <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui button" %> |
+          <%= button_to 'Delete', post_path(@post), method: :delete, class: "ui button" %>
+</div>
+
+
+):
+1:    <div class="ui container">
+2:      <div class="ui card">
+3:        <div class="image">
+4:          <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
+5:          <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
+6:        </div>
+7:        <div class="content">
+8:          <h1 class="ui header"><%= @post.title %></h1>
+9:          <p><%= @post.content %></p>
+10:          <% if @post.attachment.present? %>
+11:            <%= link_to 'Download Attachment', @post.attachment_url, class: "ui button" %>
+12:          <% end %>
+13:        </div>
+14:        <div class="extra content">
+15:          <h2 class="ui header">Comments</h2>
+16:          <ul class="ui list">
+17:            <% @post.comments.each do |comment| %>
+18:              <% if!comment.reported? %>
+19:                <li class="item">
+20:                  <%= comment.content %>
+21:                  <% if comment.id.present? %>
+22:                    <%= link_to 'Edit', edit_post_comment_path(@post, comment), class: "ui button" %> |
+23:                    <%= link_to 'Go To Report', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
+24:                  <% end %>
+25:                  <% if current_user.comment_likes.exists?(comment: comment) %>
+26:                    <%= button_to "Unlike", unlike_comment_path(comment), method: :patch, class: "ui button" %>
+27:                  <% else %>
+28:                    <%= button_to "Like", like_comment_path(comment), method: :patch, class: "ui button" %>
+29:                  <% end %>
+30:                  <%= link_to 'Reply', new_post_comment_path(@post), class: "ui button" %>
+31:                  <% if comment.children.any? %>
+32:                    <ul class="ui list">
+33:                      <% comment.children.each do |child| %>
+34:                        <li class="item">
+35:                          <%= child.content %>
+36:                          <% if child.id.present? %>
+37:                            <%= link_to 'Edit', edit_post_comment_path(@post, child), class: "ui button" %> |
+38:                            <%= link_to 'Delete', post_comment_path(@post, child), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
+39:                          <% end %>
+40:                          <% if current_user.comment_likes.exists?(comment: child) %>
+41:                            <%= button_to "Unlike", unlike_comment_path(child), method: :patch, class: "ui button" %>
+42:                          <% else %>
+43:                            <%= button_to "Like", like_comment_path(child), method: :patch, class: "ui button" %>
+44:                          <% end %>
+45:                        </li>
+46:                      <% end %>
+47:                    </ul>
+48:                  <% end %>
+49:                </li>
+50:              <% end %>
+51:            <% end %>
+52:          </ul>
+53:        </div>
+54:        <div class="extra content">
+55:          <% if current_user.likes.where(post: @post).empty? %>
+56:            <%= link_to 'Like', like_post_path(@post), method: :post, class: "ui button" %>
+57:          <% else %>
+58:            <%= link_to 'Unlike', like_post_path(@post), method: :delete, class: "ui button" %>
+59:            You liked this post!
+60:          <% end %>
+61:        </div>
+62:        <div class="extra content">
+63:          <ul class="ui list">
+64:            <% @reported_posts.each do |post| %>
+65:              <li class="item">
+66:                <%= post.title %>
+67:                <% if post.reporter %>
+68:                  (reported by <%= post.reporter %>)
+69:                <% else %>
+70:                  (no reporter)
+71:                <% end %>
+72:                <%= link_to 'View', post_path(post), class: "ui button" %>
+73:              </li>
+74:            <% end %>
+75:          </ul>
+76:        </div>
+77:        <%= render 'comments/form', post: @post, comment: Comment.new %>
+78:        </br>
+79:        <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
+80:          <%= form.text_area :content, placeholder: "Add a suggestion" %>
+81:          <%= form.submit "Submit Suggestion", class: "ui button" %>
+82:        <% end %>
+83:        <% @post.suggestions.each do |suggestion| %>
+84:          <div class="ui segment">
+85:            <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
+86:            <% if suggestion.user == current_user %>
+87:              <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui button" %> |
+88:              <%= button_to 'Delete', post_path(@post), method: :delete, class: "ui button" %>
+89:    </div>
+  
+app/views/posts/show.html.erb:93: syntax error, unexpected end-of-input, expecting `end'
+app/views/posts/show.html.erb:93: syntax error, unexpected end-of-input, expecting `end'
+app/views/posts/show.html.erb:93: syntax error, unexpected end-of-input, expecting `end'
+app/views/posts/show.html.erb:93: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/posts_controller.rb:27:in `show'
+Started GET "/posts/6" for ::1 at 2024-07-29 03:33:51 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 4826)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 8387)
+Completed 200 OK in 14ms (Views: 9.7ms | ActiveRecord: 0.6ms | Allocations: 11903)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:34:53 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 4152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 7717)
+Completed 200 OK in 23ms (Views: 15.3ms | ActiveRecord: 1.2ms | Allocations: 11093)
+
+
+Started GET "/posts/6/like" for ::1 at 2024-07-29 03:34:56 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"6"}
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 21ms (ActiveRecord: 8.1ms | Allocations: 3239)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:34:56 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2118)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 4979)
+Completed 200 OK in 19ms (Views: 10.5ms | ActiveRecord: 1.3ms | Allocations: 6926)
+
+
+Started GET "/posts/6/like" for ::1 at 2024-07-29 03:34:58 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"6"}
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 17ms (ActiveRecord: 6.1ms | Allocations: 2807)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:34:58 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4976)
+Completed 200 OK in 19ms (Views: 11.2ms | ActiveRecord: 1.3ms | Allocations: 6905)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:35:49 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3662)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 7227)
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 0.6ms | Allocations: 10464)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:35:56 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 4128)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 7685)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.9ms | Allocations: 11040)
+
+
+Started GET "/posts/6/like" for ::1 at 2024-07-29 03:35:58 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"6"}
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 19ms (ActiveRecord: 9.7ms | Allocations: 3284)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:35:58 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 2118)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4979)
+Completed 200 OK in 13ms (Views: 7.2ms | ActiveRecord: 0.8ms | Allocations: 6926)
+
+
+Started GET "/posts/6/like" for ::1 at 2024-07-29 03:36:00 +0500
+Processing by PostsController#like as HTML
+  Parameters: {"id"=>"6"}
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 19ms (ActiveRecord: 8.2ms | Allocations: 2121)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:00 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 4976)
+Completed 200 OK in 20ms (Views: 11.1ms | ActiveRecord: 1.6ms | Allocations: 6907)
+
+
+Started POST "/posts/6/suggestions" for ::1 at 2024-07-29 03:36:19 +0500
+Processing by SuggestionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "suggestion"=>{"content"=>""}, "commit"=>"Submit Suggestion", "post_id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 2187)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2243)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.6ms | Allocations: 6500)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    62: 
+    63:     <div class="extra content">
+    64:       <ul class="ui list">
+    65:         <% @reported_posts.each do |post| %>
+    66:           <li class="item">
+    67:             <%= post.title %>
+    68:             <% if post.reporter %>
+  
+app/views/posts/show.html.erb:65
+app/controllers/suggestions_controller.rb:14:in `create'
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:36 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 5202)
+Completed 200 OK in 19ms (Views: 10.8ms | ActiveRecord: 1.2ms | Allocations: 7309)
+
+
+Started POST "/posts/6/comments" for ::1 at 2024-07-29 03:36:38 +0500
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"content"=>""}, "commit"=>"Create Comment", "post_id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 3931)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 3987)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms | Allocations: 8315)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"like", :controller=>"comments", :id=>nil}, missing required keys: [:id]):
+    33:               <% if current_user.comment_likes.exists?(comment: comment) %>
+    34:                 <%= button_to "Unlike", unlike_comment_path(comment), method: :patch, class: "ui button" %>
+    35:               <% else %>
+    36:                 <%= button_to "Like", like_comment_path(comment), method: :patch, class: "ui button" %>
+    37:               <% end %>
+    38:               <%= link_to 'Reply', new_post_comment_path(@post, parent_id: comment.id), class: "ui button" %>
+    39:               <% if comment.children.any? %>
+  
+app/views/posts/show.html.erb:36
+app/views/posts/show.html.erb:25
+app/controllers/comments_controller.rb:28:in `create'
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:43 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2219)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5202)
+Completed 200 OK in 17ms (Views: 11.8ms | ActiveRecord: 1.0ms | Allocations: 7304)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:46 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 4973)
+Completed 200 OK in 19ms (Views: 11.7ms | ActiveRecord: 1.2ms | Allocations: 6882)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:48 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4973)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 6876)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:49 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 4973)
+Completed 200 OK in 17ms (Views: 10.1ms | ActiveRecord: 1.1ms | Allocations: 6884)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:36:49 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2116)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 4973)
+Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 1.3ms | Allocations: 6880)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:36:50 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4595)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 1.0ms | Allocations: 7071)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:38:14 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 5446)
+Completed 200 OK in 25ms (Views: 16.9ms | ActiveRecord: 1.5ms | Allocations: 8366)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:38:20 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 7ms (ActiveRecord: 0.2ms | Allocations: 1324)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:38:20 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 17.2ms | Allocations: 2378)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 5244)
+Completed 200 OK in 36ms (Views: 33.4ms | ActiveRecord: 0.0ms | Allocations: 8399)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:38:22 +0500
+Processing by DashboardController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :check_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 480)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:38:22 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1319)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3933)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4791)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-07-29 03:38:28 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amna185@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 410ms (ActiveRecord: 0.2ms | Allocations: 4117)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:38:28 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 4067)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.8ms | Allocations: 5603)
+
+
+Started POST "/admin" for ::1 at 2024-07-29 03:38:30 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/admin"):
+  
+Started GET "/dashboard" for ::1 at 2024-07-29 03:38:33 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 786)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 4213)
+Completed 200 OK in 23ms (Views: 15.6ms | ActiveRecord: 1.8ms | Allocations: 5916)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:14 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 5298)
+Completed 200 OK in 32ms (Views: 22.1ms | ActiveRecord: 1.9ms | Allocations: 8078)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:15 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 3900)
+Completed 200 OK in 17ms (Views: 11.7ms | ActiveRecord: 1.3ms | Allocations: 5500)
+
+
+Started GET "/admin" for ::1 at 2024-07-29 03:39:16 +0500
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/rails_admin/main/dashboard.html.erb within layouts/rails_admin/application (Duration: 26.7ms | Allocations: 20329)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/content.html.erb (Duration: 1.4ms | Allocations: 834)
+  Rendered layout /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/application.html.erb (Duration: 42.6ms | Allocations: 31736)
+Completed 200 OK in 64ms (Views: 45.7ms | ActiveRecord: 2.7ms | Allocations: 39636)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:18 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 760)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 3996)
+Completed 200 OK in 17ms (Views: 10.9ms | ActiveRecord: 1.3ms | Allocations: 5701)
+
+
+Started GET "/admin" for ::1 at 2024-07-29 03:39:31 +0500
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/rails_admin/main/dashboard.html.erb within layouts/rails_admin/application (Duration: 24.9ms | Allocations: 20331)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/content.html.erb (Duration: 1.7ms | Allocations: 834)
+  Rendered layout /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/application.html.erb (Duration: 43.5ms | Allocations: 31727)
+Completed 200 OK in 67ms (Views: 48.2ms | ActiveRecord: 2.9ms | Allocations: 39689)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:33 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 5445)
+Completed 200 OK in 23ms (Views: 15.9ms | ActiveRecord: 1.4ms | Allocations: 8338)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:34 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4039)
+Completed 200 OK in 17ms (Views: 11.0ms | ActiveRecord: 1.3ms | Allocations: 5631)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:35 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4039)
+Completed 200 OK in 21ms (Views: 13.4ms | ActiveRecord: 1.5ms | Allocations: 5512)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:41 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4039)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 1.4ms | Allocations: 5506)
+
+
+Started POST "/admin" for ::1 at 2024-07-29 03:39:43 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/admin"):
+  
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:46 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 4057)
+Completed 200 OK in 24ms (Views: 16.1ms | ActiveRecord: 1.9ms | Allocations: 5529)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:39:55 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 21.9ms | Allocations: 4197)
+Completed 200 OK in 30ms (Views: 22.2ms | ActiveRecord: 2.3ms | Allocations: 5662)
+
+
+Started POST "/admin" for ::1 at 2024-07-29 03:39:56 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/admin"):
+  
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:04 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 1396)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 5293)
+Completed 200 OK in 30ms (Views: 22.1ms | ActiveRecord: 2.0ms | Allocations: 8052)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:05 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3898)
+Completed 200 OK in 18ms (Views: 11.9ms | ActiveRecord: 1.3ms | Allocations: 5494)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:05 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3898)
+Completed 200 OK in 17ms (Views: 10.8ms | ActiveRecord: 1.4ms | Allocations: 5351)
+
+
+Started GET "/admin" for ::1 at 2024-07-29 03:40:06 +0500
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/rails_admin/main/dashboard.html.erb within layouts/rails_admin/application (Duration: 28.9ms | Allocations: 20329)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/content.html.erb (Duration: 2.1ms | Allocations: 834)
+  Rendered layout /home/dev/.bundle/ruby/3.0.0/gems/rails_admin-3.1.4/app/views/layouts/rails_admin/application.html.erb (Duration: 49.6ms | Allocations: 31736)
+Completed 200 OK in 77ms (Views: 54.3ms | ActiveRecord: 3.4ms | Allocations: 39657)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:08 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 760)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 3994)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 1.6ms | Allocations: 5719)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:40:21 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 1216)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:40:21 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2375)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5213)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 8336)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-07-29 03:40:26 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"amna185@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 417ms (ActiveRecord: 0.2ms | Allocations: 4212)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:26 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 761)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3924)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.7ms | Allocations: 5481)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:40:29 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 2780)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.0ms | Allocations: 6221)
+Completed 200 OK in 26ms (Views: 19.8ms | ActiveRecord: 0.7ms | Allocations: 8908)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:40:33 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 751)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | Allocations: 3906)
+Completed 200 OK in 19ms (Views: 12.7ms | ActiveRecord: 1.8ms | Allocations: 5491)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:40:35 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 900)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 4019)
+Completed 200 OK in 24ms (Views: 15.1ms | ActiveRecord: 1.4ms | Allocations: 6224)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:40:38 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1823)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 4927)
+Completed 200 OK in 25ms (Views: 18.5ms | ActiveRecord: 1.2ms | Allocations: 6603)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:40:41 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 3630)
+Completed 200 OK in 22ms (Views: 14.4ms | ActiveRecord: 1.7ms | Allocations: 5678)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:40:42 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 2.2ms | Allocations: 405)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 22.5ms | Allocations: 3542)
+Completed 200 OK in 29ms (Views: 22.9ms | ActiveRecord: 1.0ms | Allocations: 5378)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:40:49 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 3631)
+Completed 200 OK in 22ms (Views: 13.6ms | ActiveRecord: 1.2ms | Allocations: 5657)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:40:53 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 4.0ms | Allocations: 924)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 4028)
+Completed 200 OK in 24ms (Views: 15.4ms | ActiveRecord: 1.1ms | Allocations: 5878)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:40:56 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 3630)
+Completed 200 OK in 27ms (Views: 17.6ms | ActiveRecord: 1.4ms | Allocations: 5664)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:40:57 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 1.4ms | Allocations: 209)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3343)
+Completed 200 OK in 18ms (Views: 12.2ms | ActiveRecord: 1.0ms | Allocations: 5046)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:40:58 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3630)
+Completed 200 OK in 17ms (Views: 11.2ms | ActiveRecord: 0.9ms | Allocations: 5660)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:40:59 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 1.7ms | Allocations: 459)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 4274)
+Completed 200 OK in 18ms (Views: 14.1ms | ActiveRecord: 0.7ms | Allocations: 6068)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:00 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 512)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 3631)
+Completed 200 OK in 17ms (Views: 10.7ms | ActiveRecord: 0.9ms | Allocations: 5806)
+
+
+Started GET "/reported_comments" for ::1 at 2024-07-29 03:41:02 +0500
+Processing by CommentsController#reported_comments as HTML
+  Rendered comments/reported_comments.html.erb within layouts/application (Duration: 0.8ms | Allocations: 86)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 3485)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 1.3ms | Allocations: 4300)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:04 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3630)
+Completed 200 OK in 22ms (Views: 14.3ms | ActiveRecord: 1.2ms | Allocations: 5668)
+
+
+Started GET "/posts/new" for ::1 at 2024-07-29 03:41:15 +0500
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1928)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 5032)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.6ms | Allocations: 6700)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:17 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3630)
+Completed 200 OK in 17ms (Views: 9.0ms | ActiveRecord: 1.2ms | Allocations: 5660)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:41:19 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 5ms (ActiveRecord: 0.2ms | Allocations: 1207)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:41:19 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1342)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 3934)
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 4769)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-07-29 03:41:25 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"mishgha123@example.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Redirected to http://localhost:3000/dashboard
+Completed 303 See Other in 424ms (ActiveRecord: 0.3ms | Allocations: 1672)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:41:25 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 756)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3868)
+Completed 200 OK in 10ms (Views: 6.2ms | ActiveRecord: 0.7ms | Allocations: 5379)
+
+
+Started GET "/posts/6" for ::1 at 2024-07-29 03:41:27 +0500
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.0ms | Allocations: 3743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 6794)
+Completed 200 OK in 27ms (Views: 19.1ms | ActiveRecord: 1.5ms | Allocations: 9207)
+
+
+Started GET "/dashboard" for ::1 at 2024-07-29 03:41:28 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3852)
+Completed 200 OK in 17ms (Views: 11.4ms | ActiveRecord: 1.4ms | Allocations: 5339)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:31 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1087)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4149)
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 1.2ms | Allocations: 6438)
+
+
+Started PATCH "/posts/6/reject" for ::1 at 2024-07-29 03:41:33 +0500
+Processing by PostsController#reject as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"6"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 6.6ms | Allocations: 3437)
+
+
+Started GET "/" for ::1 at 2024-07-29 03:41:33 +0500
+Processing by DashboardController#index as HTML
+  Rendered dashboard/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 743)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 3856)
+Completed 200 OK in 17ms (Views: 10.8ms | ActiveRecord: 1.6ms | Allocations: 5363)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:36 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 510)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3587)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 1.1ms | Allocations: 5871)
+
+
+Started GET "/posts/pending_approval" for ::1 at 2024-07-29 03:41:37 +0500
+Processing by PostsController#pending_approval as HTML
+  Rendered posts/pending_approval.html.erb within layouts/application (Duration: 0.6ms | Allocations: 107)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3199)
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 1.0ms | Allocations: 5230)
+
+
+Started GET "/posts" for ::1 at 2024-07-29 03:41:38 +0500
+Processing by PostsController#index as HTML
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 510)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3587)
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.9ms | Allocations: 5879)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:41:40 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 1.8ms | Allocations: 696)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3758)
+Completed 200 OK in 17ms (Views: 10.8ms | ActiveRecord: 1.0ms | Allocations: 5802)
+
+
+Started PATCH "/posts/3/unreport" for ::1 at 2024-07-29 03:41:42 +0500
+Processing by PostsController#unreport as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+Redirected to http://localhost:3000/posts/reported
+Completed 302 Found in 24ms (ActiveRecord: 9.0ms | Allocations: 3298)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:41:42 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.6ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 3201)
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 0.9ms | Allocations: 5256)
+
+
+Started GET "/posts/reported" for ::1 at 2024-07-29 03:41:45 +0500
+Processing by PostsController#reported_posts as HTML
+  Rendered posts/reported_posts.html.erb within layouts/application (Duration: 0.8ms | Allocations: 105)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 3197)
+Completed 200 OK in 21ms (Views: 12.5ms | ActiveRecord: 1.3ms | Allocations: 5236)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2024-07-29 03:41:46 +0500
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 303 See Other in 6ms (ActiveRecord: 0.2ms | Allocations: 1126)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-07-29 03:41:47 +0500
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3916)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4723)
+
+
