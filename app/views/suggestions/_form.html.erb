@@ -1,0 +1,4 @@
+<%= form_with(model: [@post, @suggestion], local: true) do |form| %>
+  <%= form.text_area :content, placeholder: "Edit your suggestion" %>
+  <%= form.submit "Update Suggestion" %>
+<% end %>

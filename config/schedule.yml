@@ -1,0 +1,3 @@
+clean_unapproved_posts:
+  cron: "0 0 * * * *" # run daily at midnight
+  class: CleanUnapprovedPostsWorker

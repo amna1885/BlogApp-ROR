@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
-  before_action :set_post
-  before_action :set_suggestion, only: %i[update destroy reject reply]
+  before_action :authenticate_user!
+  before_action :set_post, only: %i[create update destroy reply edit]
 
   def create
     @suggestion = @post.suggestions.build(suggestion_params)
@@ -13,7 +13,12 @@ class SuggestionsController < ApplicationController
     end
   end
 
+  def edit
+    @suggestion = Suggestion.find(params[:id])
+  end
+
   def update
+    @suggestion = current_user.suggestions.find(params[:id])
     if @suggestion.update(suggestion_params)
       redirect_to @post, notice: 'Suggestion was successfully updated.'
     else
@@ -22,6 +27,7 @@ class SuggestionsController < ApplicationController
   end
 
   def destroy
+    @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
     redirect_to @post, notice: 'Suggestion was successfully deleted.'
   end
@@ -32,8 +38,13 @@ class SuggestionsController < ApplicationController
   end
 
   def reply
-    @suggestion.update(reply: params[:reply])
-    redirect_to @post, notice: 'Reply was successfully added to the suggestion.'
+    @suggestion = @post.suggestions.new(suggestion_params)
+    @suggestion.user = current_user
+    if @suggestion.save
+      redirect_to @post, notice: 'Reply was successfully created.'
+    else
+      redirect_to @post, alert: 'Failed to create reply.'
+    end
   end
 
   private

@@ -1,0 +1,20 @@
+development:
+  cloud_name: dvv93vh8p
+  api_key: 274658269941387
+  api_secret: Oa3ISWmOCXDzHm5iK4yqBR1Qy5M
+  enhance_image_tag: true
+  static_file_support: false
+
+production:
+  cloud_name: dvv93vh8p
+  api_key: 274658269941387
+  api_secret: Oa3ISWmOCXDzHm5iK4yqBR1Qy5M
+  enhance_image_tag: true
+  static_file_support: true
+
+test:
+  cloud_name: dvv93vh8p
+  api_key: 274658269941387
+  api_secret: Oa3ISWmOCXDzHm5iK4yqBR1Qy5M
+  enhance_image_tag: true
+  static_file_support: false

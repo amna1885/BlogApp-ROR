@@ -1,0 +1,21 @@
+<% @comments.each do |comment| %>
+  <p>
+    <%= comment.content %>
+    <br>
+    Commented by: <%= comment.user.email %>
+  </p>
+
+    <% if comment.reported? %>
+      <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch %>
+    <% else %>
+      <%= button_to 'Report', report_comment_path(comment), method: :patch %>
+    <% end %>
+  <% if current_user.moderator? %>
+    <% if comment.reported? %>
+      <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch %>
+  <% else %>
+    <%= button_to 'Report', report_comment_path(comment), method: :patch %>
+<% end %>
+    <% end %>
+    <% end %>
+
