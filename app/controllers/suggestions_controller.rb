@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[create update destroy reply edit]
+  before_action :set_post, only: %i[create update destroy reply edit reject]
 
   def create
     @suggestion = @post.suggestions.build(suggestion_params)
@@ -33,6 +33,7 @@ class SuggestionsController < ApplicationController
   end
 
   def reject
+    @suggestion = @post.suggestions.find(params[:id])
     @suggestion.update(rejected: true)
     redirect_to @post, notice: 'Suggestion was successfully rejected.'
   end

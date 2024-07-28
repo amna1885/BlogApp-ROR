@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users
+
   get '/users/sign_out' => 'devise/sessions#destroy'
   get '/moderator_dashboard', to: 'moderator_dashboard#index', as: 'moderator_dashboard'
 
@@ -37,6 +38,7 @@ Rails.application.routes.draw do
     resources :suggestions, only: %i[create update destroy edit] do
       member do
         post :reply
+        patch :reject
       end
     end
 

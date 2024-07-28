@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
   include CacheControlConcern
 
-  before_action :authenticate_user!
   before_action :set_cache_control
 
   def index

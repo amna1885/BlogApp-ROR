@@ -91,7 +91,6 @@ class PostsController < ApplicationController
   end
 
   def like
-    current_user.like(@comment)
     if current_user.likes.where(post: @post).empty?
       current_user.like(@post)
       redirect_to @post, notice: 'You liked this post!'
