@@ -5,7 +5,7 @@
 </p>
 
 <div class="ui divided list">
-  <% if current_user.is_moderator? %>
+  <% if user_signed_in? && current_user.is_moderator? %>
     <% @posts.where(approved: nil).each do |post| %>
       <div class="item">
         <%= link_to post.title, post_path(post) %>
@@ -31,7 +31,7 @@
 <% end %>
 
 <p>
-  <%= link_to "Reported Posts", reported_posts_path, class: 'ui secondary button' %>
+  <%= link_to "Reported Posts", reported_posts_posts_path, class: 'ui secondary button' %>
 </p>
 
 <p>

@@ -7,8 +7,10 @@
       <%= link_to post.title, post %>
       <% if post.approved %>
         <p class="ui green text">This post has been approved</p>
+     <% elsif !post.approved %>
+        <p class="ui red text">This post has been rejected</p>
       <% else %>
-        <p class="ui red text">This post has been rejected or is currently under review</p>
+        <p class="ui orange text">This post is currently under review</p>
       <% end %>
     </li>
   <% end %>

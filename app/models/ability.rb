@@ -20,7 +20,7 @@ class Ability
       can :create, Post
       can :update, Post, user_id: user.id
       can :destroy, Post, user_id: user.id
-      can :like, Post
+      can :toggle_like, Post
       can :report, Post
     else
       can :read, :all

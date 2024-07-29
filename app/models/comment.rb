@@ -4,12 +4,12 @@ class Comment < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
 
   belongs_to :user
-  belongs_to :post, dependent: :destroy
+  belongs_to :post
   has_many :likes, dependent: :destroy
   has_many :comment_likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
   belongs_to :parent, class_name: 'Comment', optional: true
-  has_many :children, class_name: 'Comment', foreign_key: 'parent_id'
+  has_many :children, class_name: 'Comment', foreign_key: 'parent_id', dependent: :destroy
 
   validates :content, presence: true
   validates :post, presence: true

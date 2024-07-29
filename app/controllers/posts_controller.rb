@@ -9,14 +9,20 @@ class PostsController < ApplicationController
   before_action :set_cache_control
   before_action :check_post_status, only: %i[approve reject]
 
-  def index
-    @reported_posts = Post.reported_posts
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
-    @posts = if current_user.is_moderator?
-               Post.all
-             else
-               Post.where(approved: true)
-             end
+  def index
+    if user_signed_in?
+      @reported_posts = Post.reported_posts
+      @posts = if current_user.has_role?(:moderator)
+                 Post.all
+               else
+                 Post.where(approved: true)
+               end
+    else
+      flash[:error] = 'You need to sign in!!'
+      redirect_to new_user_session_path
+    end
   end
 
   def show
@@ -34,7 +40,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    byebug
     if @post.save
       flash[:success] = 'Post created successfully'
       redirect_to @post
@@ -90,14 +95,15 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
-  def like
-    if current_user.likes.where(post: @post).empty?
-      current_user.like(@post)
-      redirect_to @post, notice: 'You liked this post!'
+  def toggle_like
+    if current_user.likes.exists?(post: @post)
+      current_user.likes.where(post: @post).destroy_all
+      flash[:notice] = 'You unliked this post.'
     else
-      current_user.unlike(@post)
-      redirect_to @post, notice: 'You unliked this post!'
+      current_user.likes.create(post: @post)
+      flash[:notice] = 'You liked this post.'
     end
+    redirect_to @post
   end
 
   private
@@ -114,5 +120,9 @@ class PostsController < ApplicationController
     return unless @post.approved? || @post.rejected?
 
     redirect_to root_path, alert: 'Post is already approved or rejected'
+  end
+
+  def handle_record_not_found
+    redirect_to root_path, alert: 'Post not found'
   end
 end

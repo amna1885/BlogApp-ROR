@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_post, only: %i[create edit update destroy show new]
+  before_action :set_post, only: %i[create edit update show new]
   before_action :set_comment, only: %i[show edit update destroy]
   before_action :authenticate_user! # Ensure user is authenticated
 
@@ -25,8 +25,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post), notice: 'Comment was successfully created.'
     else
-      flash[:error] = 'Comment cannot be empty'
-      redirect_to post_path(@post)
+      render 'posts/show'
     end
   end
 
@@ -69,6 +68,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
   end
@@ -103,7 +103,7 @@ class CommentsController < ApplicationController
   def set_comment
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    # @comment = Comment.find(params[:id]) #this also does the same
+    @comment = Comment.find(params[:id])
   end
 
   def comment_params
