@@ -114,11 +114,11 @@ Role.create!(name: 'moderator')
 Role.create!(name: 'user')
 
 # Create users and assign roles
-admin = User.create!(email: 'amna185@example.com', password: 'password', password_confirmation: 'password')
+admin = User.create!(email: 'admin123@example.com', password: 'password', password_confirmation: 'password')
 admin.add_role :admin
 
-moderator = User.create!(email: 'mishgha123@example.com', password: 'password', password_confirmation: 'password')
+moderator = User.create!(email: 'mod123@example.com', password: 'password', password_confirmation: 'password')
 moderator.add_role :moderator
 
-user = User.create!(email: 'laiba980@example.com', password: 'password', password_confirmation: 'password')
+user = User.create!(email: 'user123@example.com', password: 'password', password_confirmation: 'password')
 user.add_role :user

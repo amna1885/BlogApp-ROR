@@ -25,7 +25,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(@post), notice: 'Comment was successfully created.'
     else
-      render 'posts/show'
+      flash[:error] = 'Comment cannot be empty'
+      redirect_to post_path(@post)
     end
   end
 
@@ -102,7 +103,7 @@ class CommentsController < ApplicationController
   def set_comment
     @post = Post.find(params[:post_id])
     @comment = @post.comments.find(params[:id])
-    @comment = Comment.find(params[:id])
+    # @comment = Comment.find(params[:id]) #this also does the same
   end
 
   def comment_params

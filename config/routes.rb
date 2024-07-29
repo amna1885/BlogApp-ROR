@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/reported_comments', to: 'comments#reported_comments', as: 'reported_comments'
   patch '/comments/:id/unreport', to: 'comments#unreport_comment', as: 'unreport_comment'
   patch '/comments/:id/unpublish', to: 'comments#unpublish_comment', as: 'unpublish_comment'
+  delete '/posts/:id/like', to: 'posts#like', as: 'unlike_post'
 
   # get '/posts/:post_id/comments', to: 'comments#index', as: 'post_comments'
 
@@ -53,7 +54,7 @@ Rails.application.routes.draw do
       get :like
       put :like
       delete :unlike
-      patch :unlike
+      # patch :unlike
     end
 
     resources :comments, only: %i[create edit update destroy show new] do
@@ -64,6 +65,7 @@ Rails.application.routes.draw do
         delete :unlike
         patch :unlike
         get :like, as: 'like_comment'
+        delete :destroy
       end
     end
     collection do

@@ -318,6 +318,7 @@ Devise.setup do |config|
   config.unlock_keys = [:email]
   config.maximum_attempts = 5
   config.unlock_in = 5.minutes
+  config.last_attempt_warning = true
 
   config.sign_out_all_scopes = true
 

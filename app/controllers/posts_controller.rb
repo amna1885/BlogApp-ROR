@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.all
+    render text: 'Post not found', status: :not_found if @post.nil?
     @comment = Comment.new
     @suggestions = @post.suggestions
     @reported_posts = Post.where(user: @post.user, reported: true)
@@ -33,15 +34,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.attachment = @post.attachment.read if @post.attachment
-
+    byebug
     if @post.save
-      if params[:post][:attachment].present?
-        public_id = AttachmentUploader.upload(params[:post][:attachment])
-        @post.update(attachment: public_id)
-      end
-      redirect_to root_path, notice: 'Post was successfully created.'
+      flash[:success] = 'Post created successfully'
+      redirect_to @post
     else
+      flash[:error] = 'There was an error creating the post'
       render :new
     end
   end

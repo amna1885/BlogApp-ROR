@@ -11,7 +11,7 @@
       <% if can?(:update, comment) %>
         <%= link_to 'Edit', edit_post_comment_path(comment.post, comment), class: "ui mini button" %>
       <% end %>
-      <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete, class: "ui mini button" %>
+      <%= button_to 'Delete', post_comment_path(comment.post, comment), method: :delete, class: "ui mini button" %>
     </div>
   </div>
 </div>

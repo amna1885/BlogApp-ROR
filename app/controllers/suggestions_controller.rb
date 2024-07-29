@@ -9,9 +9,10 @@ class SuggestionsController < ApplicationController
     @suggestion.user = current_user
 
     if @suggestion.save
-      redirect_to @post, notice: 'Suggestion was successfully created.'
+      redirect_to post_path(@post), notice: 'Suggestion created successfully'
     else
-      render 'posts/show', alert: 'Error creating suggestion.'
+      flash[:error] = "Suggestion can't be empty"
+      redirect_to post_path(@post)
     end
   end
 

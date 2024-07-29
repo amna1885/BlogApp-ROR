@@ -24,7 +24,7 @@ class Ability
       can :report, Post
     else
       can :read, :all
-      can :create, :all
+      # can :create, :all
     end
   end
 end
