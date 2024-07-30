@@ -54,10 +54,6 @@ class CommentsController < ApplicationController
     @comments = Comment.where(reported: true)
   end
 
-  def reported
-    @reported_comments = Comment.where(reported: true)
-  end
-
   def unreport_comment
     @comment = Comment.find(params[:id])
     @comment.update(reported: false)

@@ -57,10 +57,6 @@ class SuggestionsController < ApplicationController
     @post = Post.find(params[:post_id])
   end
 
-  def set_suggestion
-    @suggestion = @post.suggestions.find(params[:id])
-  end
-
   def suggestion_params
     params.require(:suggestion).permit(:content, :rejected, :reply)
   end

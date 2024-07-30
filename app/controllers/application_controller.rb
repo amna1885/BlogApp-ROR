@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
-  before_action :check_login_attempts, if: :user_signed_in?
+  before_action :check_login_attempts, unless: :user_signed_in?
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_cache_control
   before_action :check_login, except: %i[new create]
