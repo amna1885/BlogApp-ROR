@@ -9,7 +9,6 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :moderator
-      # can :manage, Post
       can :read, :all
       can %i[approve reject unreport], Post
       can :reported_posts, Post

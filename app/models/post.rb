@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   accepts_nested_attributes_for :comments
-  has_rich_text :content
+  has_rich_text :description
   has_one_attached :attachment
 
   enum status: { pending: 0, approved: 1, rejected: 2 }
@@ -21,7 +21,7 @@ class Post < ApplicationRecord
 
   validates :title, presence: true,
                     length: { minimum: 5, maximum: 10, message: 'must be between 5 and 10 characters long.' }
-  validates :content, presence: true, length: { minimum: 10, message: 'must be at least 10 characters long.' }
+  validates :description, presence: true, length: { minimum: 10, message: 'must be at least 10 characters long.' }
   validates :approved, inclusion: { in: [true, false] }, on: :update
 
   scope :pending_approval, -> { where(approved: false, status: 'pending') }

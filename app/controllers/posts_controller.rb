@@ -114,7 +114,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :attachment, :status, :approved, :reported)
+    params.require(:post).permit(:title, :description, :attachment, :status, :approved, :reported)
   end
 
   def check_post_status
