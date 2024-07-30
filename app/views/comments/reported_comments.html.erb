@@ -8,7 +8,7 @@
       </p>
       <div class="ui buttons">
         <% if comment.reported? %>
-          <%= button_to 'Unreport', unreport_comment_path(comment), method: :patch, class: "ui button" %>
+          <%= button_to 'Unreport', unreport_post_comment_path(comment.post_id,comment), method: :patch, class: "ui button" %>
         <% else %>
           <%= button_to 'Report', report_comment_path(comment), method: :patch, class: "ui button" %>
         <% end %>

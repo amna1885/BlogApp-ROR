@@ -38,6 +38,7 @@ class SuggestionsController < ApplicationController
   def reject
     @suggestion = @post.suggestions.find(params[:id])
     @suggestion.update(rejected: true)
+    @suggestion.destroy
     redirect_to @post, notice: 'Suggestion was successfully rejected.'
   end
 

@@ -53,8 +53,6 @@ Rails.application.routes.draw do
   # Custom Comment Routes
   patch '/posts/:post_id/comments/:id/report', to: 'comments#report_comment', as: 'report_comment'
   get '/reported_comments', to: 'comments#reported_comments', as: 'reported_comments'
-  get '/comments/:id/unreport', to: 'comments#unreport_comment', as: 'unreport_comment'
-
   # Moderator Dashboard routes
   resources :moderator_dashboard, only: [:index]
 end
