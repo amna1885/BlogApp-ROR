@@ -7,8 +7,8 @@
       <%= link_to post.title, post %>
       <% if post.approved %>
         <p class="ui green text">This post has been approved</p>
-     <% elsif !post.approved %>
-        <p class="ui red text">This post has been rejected</p>
+     <%# <% elsif !post.approved %>
+        <%# <p class="ui red text">This post has been rejected</p>  %>
       <% else %>
         <p class="ui orange text">This post is currently under review</p>
       <% end %>
@@ -34,9 +34,4 @@
   <% end %>
 </ul>
 
-<div class="ui buttons">
-  <%= link_to 'Create a New Post', new_post_path, class: "ui button" %>
-  <%= link_to "View All Posts", posts_path, class: "ui button" %>
-  <%= link_to 'Edit Account', edit_user_registration_path, class: "ui button" %>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "ui button" %>
-</div>
+

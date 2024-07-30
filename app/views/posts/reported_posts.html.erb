@@ -7,8 +7,8 @@
         <div class="content">
           <%= post.title %>
           <div class="right floated content">
-            <%= button_to 'Remove Report', unreport_post_path(post), method: :patch, class: 'ui tiny button' %>
-            <%= button_to 'Unpublish', unpublish_post_path(post), method: :patch, class: 'ui tiny red button' %>
+            <%= link_to 'Remove Report', unreport_post_path(post), method: :patch, class: 'ui tiny button' %>
+            <%= link_to 'Unpublish', unpublish_post_path(post), method: :patch, class: 'ui tiny red button' %>
           </div>
         </div>
       </div>

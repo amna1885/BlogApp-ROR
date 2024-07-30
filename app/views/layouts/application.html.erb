@@ -4,43 +4,74 @@
     <title>BlogApp</title>
     <%= favicon_link_tag 'favicon.png' %>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <%= csrf_meta_tags %> <%= csp_meta_tag %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js" integrity="sha512-Xo0Jh8MsOn72LGV8kU5LsclG7SUzJsWGhXbWcYs2MAmChkQzwiW/yTQwdJ8w6UA9C6EVG18GHb/TrYpYCjyAQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <style>
+      .ui.menu {
+        background-color: #1b1c1d; /* Black background color */
+        color: white;
+      }
+      .ui.menu .item {
+        color: white;
+      }
+      .ui.menu .item:hover {
+        background-color: #2185d0; /* Blue hover color */
+        color: white;
+      }
+      .ui.menu .right.menu .item {
+        margin-left: 1em; /* Add some spacing between buttons */
+      }
+      body {
+        padding: 2rem;
+        margin-top: 4rem; /* Add margin to avoid content overlap with fixed navbar */
+      }
+    </style>
   </head>
-  <body style = "padding: 2rem" >
+  <body>
+    <div class="ui menu fixed">
+      <% if user_signed_in? %>
+        <div class="item">
+          <span>Hello, you are signed in as <%= current_user.email %>!</span>
+        </div>
+        <% if current_user.has_role?(:admin) %>
+          <div class="item">
+            <%= link_to 'Admin Dashboard', rails_admin_path, class: 'ui small button' %>
+          </div>
+        <% end %>
+        <div class="right menu">
+          <div class="item">
+            <%= link_to 'Dashboard', dashboard_path, class: 'ui small button' %>
+          </div>
+          <div class="item">
+            <%= link_to 'Create a New Post', new_post_path, class: 'ui small button' %>
+          </div>
+          <div class="item">
+            <%= link_to 'View All Posts', posts_path, class: 'ui small button' %>
+          </div>
+          <div class="item">
+            <%= link_to 'Edit Account', edit_user_registration_path, class: 'ui small button' %>
+          </div>
+          <div class="item">
+            <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: 'ui small button' %>
+          </div>
+        </div>
+      <% else %>
+        <div class="right menu">
+          <div class="item">
+            <%= button_to 'Log In', new_user_session_path, class: 'ui small button' %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
 
-    <nav class="ui menu">
-      <% if user_signed_in? %>
-        <div class="item">
-          <span>Hello, <%= current_user.email %>! (<%= current_user.roles_name %>)</span>
-        </div>
-        <div class="item">
-          <%= link_to 'Dashboard', dashboard_path %>
-        </div>
-        <% if current_user.has_role?(:admin) %>
-          <div class="item">
-            <%= link_to 'Admin Dashboard', rails_admin_path, class: 'ui button' %>
-          </div>
-        <% end %>
-        <div class="item">
-          <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: 'ui button' %>
-        </div>
-      <% else %>
-        <div class="item">
-          <%= button_to 'Log In', new_user_session_path, class: 'ui button' %>
-        </div>
-      <% end %>
-    </nav>
-
-    <% flash.each do |key, message| %>
-      <div class="flash <%= key %>"><%= message %></div>
-    <% end %>
   </body>
 </html>

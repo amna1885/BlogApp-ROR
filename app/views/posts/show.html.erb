@@ -1,104 +1,67 @@
 <div class="ui container">
-  <div class="ui card">
-    <div class="image">
-      <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
-      <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
-    </div>
-    <div class="content">
-      <h1 class="ui header"><%= @post.title %></h1>
-      <p><%= @post.content %></p>
-      <% if @post.attachment.present? %>
-        <%= link_to 'Download Attachment', @post.attachment_url, class: "ui button" %>
-      <% end %>
-    </div>
-      <div class="extra content">
-  <% if current_user.likes.where(post: @post).empty? %>
-    <%= link_to 'Like', toggle_like_post_path(@post), method: :post, class: "ui button" %>
-  <% else %>
-    <%= link_to 'Unlike', toggle_like_post_path(@post), method: :post, class: "ui button" %>
-    You liked this post!
-  <% end %>
-</div>
-
-    <div class="extra content">
-      <h2 class="ui header">Comments</h2>
-      <ul class="ui list">
-        <% @post.comments.each do |comment| %>
-          <% unless comment.reported? %>
-            <li class="item">
-              <%= comment.content %>
-              <% if comment.id.present? %>
-                <%= link_to 'Edit', edit_post_comment_path(@post, comment), class: "ui button" %> |
-                <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
-              <% end %>
-              <% if current_user.comment_likes.exists?(comment: comment) %>
-                <%= button_to "Unlike", unlike_post_comment_path(@post, comment), method: :delete, class: "ui button" %>
-              <% else %>
-                <%= button_to "Like", like_post_comment_path(@post, comment), method: :post, class: "ui button" %>
-              <% end %>
-              <%= link_to 'Reply', new_post_comment_path(@post, parent_id: comment.id), class: "ui button" %>
-              <% if comment.children.any? %>
-                <ul class="ui list">
-                  <% comment.children.each do |child| %>
-                    <li class="item">
-                      <%= child.content %>
-                      <% if child.id.present? %>
-                        <%= link_to 'Edit', edit_post_comment_path(@post, child), class: "ui button" %> |
-                        <%= link_to 'Delete', post_comment_path(@post, child), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui button" %>
-                      <% end %>
-                      <% if current_user.comment_likes.exists?(comment: child) %>
-                        <%= button_to "Unlike", unlike_post_comment_path(child), method: :patch, class: "ui button" %>
-                      <% else %>
-                        <%= button_to "Like", like_post_comment_path(child), method: :patch, class: "ui button" %>
-                      <% end %>
-                    </li>
-                  <% end %>
-                </ul>
-              <% end %>
-            </li>
+  <div class="ui grid" style="display: flex;">
+    <div class="twelve wide column" style="padding-right: 0; display: flex; flex-direction: column;">
+      <div class="ui card" style="width: 100%; flex: 1;">
+        <div class="content">
+          <h1 class="ui header">Title: <%= @post.title %></h1>
+          <p><h3>Content:</h3> <%= @post.content %></p>
+          <% if @post.attachment.present? %>
+            <%= link_to 'Download Attachment', @post.attachment_url, class: "ui primary button" %>
           <% end %>
-        <% end %>
-      </ul>
+        </div>
+        <div class="image">
+          <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
+          <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
+        </div>
+        <div class="extra content">
+          <% if current_user.likes.where(post: @post).empty? %>
+            <%= link_to 'Like', toggle_like_post_path(@post), method: :post, class: "ui primary button" %>
+          <% else %>
+            <%= link_to 'Unlike', toggle_like_post_path(@post), method: :post, class: "ui secondary button" %>
+            You liked this post!
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <div class="extra content">
-      <ul class="ui list">
-        <% @reported_posts.each do |post| %>
-          <li class="item">
-            <%= post.title %>
-            <% if post.reporter %>
-              (reported by <%= post.reporter %>)
-            <% else %>
-              (no reporter)
+    <div class="four wide column" style="padding-left: 20px; display: flex; flex-direction: column;">
+      <div class="ui segment" style="flex: 1;">
+        <h2 class="ui header">Comments</h2>
+        <%= render 'comments/form', post: @post, comment: Comment.new %>
+        <ul class="ui divided list">
+          <% @post.comments.each do |comment| %>
+            <% unless comment.reported? %>
+                              <%= render 'comments/comment', comment: comment %>
             <% end %>
-            <%= link_to 'View', post_path(post), class: "ui button" %>
-          </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ui segment" style="flex: 1;">
+        <h2 class="ui header">Suggestions</h2>
+        <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
+          <div class="field">
+            <%= form.text_area :content, placeholder: "Add a suggestion" %>
+          </div>
+          <div class="field">
+            <%= form.submit "Submit Suggestion", class: "ui primary button" %>
+          </div>
         <% end %>
-      </ul>
-    </div>
-    <%= render 'comments/form', post: @post, comment: Comment.new %>
-    <br>
-    <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
-      <%= form.text_area :content, placeholder: "Add a suggestion" %>
-      <%= form.submit "Submit Suggestion", class: "ui button" %>
-    <% end %>
-    <% @post.suggestions.each do |suggestion| %>
-      <div class="ui segment">
-        <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
-        <% if suggestion.user == current_user %>
-          <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui button" %> |
-          <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete, class: "ui button" %>
+        <% @post.suggestions.each do |suggestion| %>
+          <div class="ui segment">
+            <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
+            <% if suggestion.user == current_user %>
+              <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui primary button" %> |
+              <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete, class: "ui secondary button" %>
+            <% end %>
+          </div>
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="actions" style="margin-top: 20px;">
+    <% if current_user == @post.user || current_user.admin? %>
+      <%= link_to "Edit", edit_post_path(@post), class: "ui button" %>
+      <%= link_to "Delete", post_path(@post), method: :delete, class: "ui button negative" %>
     <% end %>
+    <%= link_to "Report", report_post_path(@post), class: "ui button" %>
   </div>
 </div>
-<div class="actions">
-  <% if current_user == @post.user || current_user.admin? %>
-    <%= link_to "Edit", edit_post_path(@post), class: "ui button" %>
-    <%= link_to "Delete", post_path(@post), method: :delete, class: "ui button negative" %>
-  <% end %>
-
-  <%= link_to "Report", report_post_path(@post), class: "ui button" %>
-</div>
-

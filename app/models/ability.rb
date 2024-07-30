@@ -24,7 +24,10 @@ class Ability
       can :report, Post
     else
       can :read, :all
-      # can :create, :all
+      can :create, Post
+      can :toggle_like, Post
+      can :update, Post, user_id: user.id
+      can :destroy, Post, user_id: user.id
     end
   end
 end

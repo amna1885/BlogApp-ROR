@@ -1,5 +1,5 @@
 <div class="ui segment">
-  <%= form_for([@post, @comment]) do |form| %>
+  <%= form_with(model: [@post, @comment], local: true, class: "ui form") do |form| %>
     <% if @comment.errors.any? %>
       <div class="ui error message">
         <i class="close icon"></i>
@@ -16,7 +16,7 @@
 
     <div class="field">
       <%= form.label :content %>
-      <%= form.text_area :content, class: "form-textarea" %>
+      <%= form.text_area :content, placeholder: "Add a comment", class: "ui input" %>
     </div>
 
     <div class="field">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="ui buttons">
-      <%= form.submit class: "ui button" %>
+      <%= form.submit "Submit Comment", class: "ui primary button" %>
     </div>
   <% end %>
 </div>

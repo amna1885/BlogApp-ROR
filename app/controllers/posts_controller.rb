@@ -73,12 +73,13 @@ class PostsController < ApplicationController
   end
 
   def unreport
-    @post.update(reported: false)
-    redirect_to reported_posts_path, notice: 'Post unreported successfully!'
+    @post.update(status: 'rejected', reported: false)
+    redirect_to reported_posts_path, notice: 'Post was successfully rejected.'
   end
 
   def unpublish
-    @post.update(reported: true)
+    @post.update(status: 'rejected', reported: true)
+    @post.destroy
     redirect_to reported_posts_path, notice: 'Post was successfully unpublished.'
   end
 
@@ -113,7 +114,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :attachment, :status, :approved)
+    params.require(:post).permit(:title, :content, :attachment, :status, :approved, :reported)
   end
 
   def check_post_status

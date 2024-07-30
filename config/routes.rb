@@ -22,13 +22,13 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get :pending_approval
-      get :reported, action: :reported_posts, as: :reported_posts
+      get :reported, action: :reported_posts
     end
     member do
       patch :approve
       patch :reject
       patch :unpublish
-      patch :report
+      get :report
       patch :unreport
       post :toggle_like
     end
@@ -38,9 +38,10 @@ Rails.application.routes.draw do
         patch :reject
       end
     end
-    resources :comments, only: %i[create edit update destroy show new] do
+    resources :comments do
       member do
-        patch :report
+        get :report, action: :report_comment
+        patch :report, action: :report_comment
         patch :unreport
         patch :unpublish
         post :like
@@ -50,8 +51,8 @@ Rails.application.routes.draw do
   end
 
   # Custom Comment Routes
+  patch '/posts/:post_id/comments/:id/report', to: 'comments#report_comment', as: 'report_comment'
   get '/reported_comments', to: 'comments#reported_comments', as: 'reported_comments'
-
   # Moderator Dashboard routes
   resources :moderator_dashboard, only: [:index]
 end

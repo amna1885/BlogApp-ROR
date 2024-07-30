@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   accepts_nested_attributes_for :comments
-  has_rich_text :description
+  has_rich_text :content
   has_one_attached :attachment
 
   enum status: { pending: 0, approved: 1, rejected: 2 }
