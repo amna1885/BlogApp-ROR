@@ -10,17 +10,18 @@ class ModeratorDashboardController < ApplicationController
 
   def approve
     if @post.approve!
-      redirect_to moderator_path, notice: 'Post approved successfully'
+      redirect_to moderator_path, notice: t('moderator_dashboard.approve.success')
     else
-      redirect_to moderator_path, alert: 'Failed to approve post'
+      redirect_to moderator_path, alert: t('moderator_dashboard.approve.failure')
+
     end
   end
 
   def reject
     if @post.reject!
-      redirect_to moderator_path, notice: 'Post rejected successfully'
+      redirect_to moderator_path, notice: t('moderator_dashboard.reject.success')
     else
-      redirect_to moderator_path, alert: 'Failed to reject post'
+      redirect_to moderator_path, alert: t('moderator_dashboard.reject.failure')
     end
   end
 

@@ -20,8 +20,8 @@ class Post < ApplicationRecord
   after_initialize :set_pending_status, if: :new_record?
 
   validates :title, presence: true,
-                    length: { minimum: 5, maximum: 10, message: 'must be between 5 and 10 characters long.' }
-  validates :description, presence: true, length: { minimum: 10, message: 'must be at least 10 characters long.' }
+                    length: { minimum: 5, maximum: 10, message: I18n.t('errors.messages.title_length') }
+  validates :description, presence: true, length: { minimum: 10, message: I18n.t('errors.messages.description_length') }
   validates :is_approved, inclusion: { in: [true, false] }, on: :update
 
   scope :pending_approval, -> { where(is_approved: false, status: 'pending') }

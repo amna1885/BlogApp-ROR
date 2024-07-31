@@ -23,9 +23,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to post_path(@post), notice: 'Comment created successfully'
+      redirect_to post_path(@post), notice: t('comments.create.success')
     else
-      flash[:error] = @comment.errors.full_messages.to_sentence
+      flash[:error] = t('comments.errors', errors: @comment.errors.full_messages.to_sentence)
       redirect_to post_path(@post)
     end
   end
@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to post_path(@post), notice: 'Comment was successfully updated.'
+      redirect_to post_path(@post), notice: t('comments.update.success')
     else
       render :edit
     end
@@ -45,9 +45,10 @@ class CommentsController < ApplicationController
   def report_comment
     @comment = Comment.find(params[:id])
     @comment.update(is_reported: true)
-    redirect_to root_path, notice: 'Comment has been reported successfully'
+    redirect_to root_path,  notice: t('comments.report.success')
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, alert: 'Comment not found.'
+    redirect_to root_path, alert: t('comments.report.not_found')
+
   end
 
   def reported_comments
@@ -57,19 +58,20 @@ class CommentsController < ApplicationController
   def unreport_comment
     @comment = Comment.find(params[:id])
     @comment.update(is_reported: false)
-    redirect_to reported_comments_path, notice: 'Comment has been unreported succesfully'
+    redirect_to reported_comments_path,  notice: t('comments.unreport.success')
   end
 
   def unpublish_comment
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to reported_comments_path, notice: 'Comment was successfully unpublished'
+    redirect_to reported_comments_path, notice: t('comments.unpublish.success')
+
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
+    redirect_to post_path(@post), notice: t('comments.destroy.success')
   end
 
   private

@@ -9,9 +9,9 @@ class SuggestionsController < ApplicationController
     @suggestion.user = current_user
 
     if @suggestion.save
-      redirect_to post_path(@post), notice: 'Suggestion created successfully'
+      redirect_to post_path(@post), notice: t('suggestions.create.success')
     else
-      flash[:error] = "Suggestion can't be empty"
+      flash[:error] = t('suggestions.create.failure')
       redirect_to post_path(@post)
     end
   end
@@ -23,23 +23,24 @@ class SuggestionsController < ApplicationController
   def update
     @suggestion = current_user.suggestions.find(params[:id])
     if @suggestion.update(suggestion_params)
-      redirect_to @post, notice: 'Suggestion was successfully updated.'
+      redirect_to @post, notice: t('suggestions.update.success')
     else
-      render 'posts/show', alert: 'Error updating suggestion.'
+      render 'posts/show'
+      flash[:alert] = t('suggestions.update.failure')
     end
   end
 
   def destroy
     @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
-    redirect_to @post, notice: 'Suggestion was successfully deleted.'
+    redirect_to @post, notice: t('suggestions.destroy.success')
   end
 
   def reject
     @suggestion = @post.suggestions.find(params[:id])
     @suggestion.update(is_rejected: true)
     @suggestion.destroy
-    redirect_to @post, notice: 'Suggestion was successfully rejected.'
+    redirect_to @post,  notice: t('suggestions.reject.success')
   end
 
   def reply
@@ -49,9 +50,9 @@ class SuggestionsController < ApplicationController
     @reply.post = @post
 
     if @reply.save
-      redirect_to post_path(@post), notice: 'Reply created successfully'
+      redirect_to post_path(@post), notice: t('suggestions.reply.success')
     else
-      redirect_to post_path(@post), alert: 'Failed to create reply.'
+      redirect_to post_path(@post), notice: t('suggestions.reply.failure')
     end
   end
 

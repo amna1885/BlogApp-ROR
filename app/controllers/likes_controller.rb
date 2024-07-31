@@ -8,7 +8,7 @@ class LikesController < ApplicationController
     if @like.save
       flash[:notice] = likeable_notice(@likeable)
     else
-      flash[:alert] = 'Unable to like.'
+      flash[:alert] = t('likes.create.failure')
     end
 
     redirect_back(fallback_location: root_path)
@@ -18,12 +18,12 @@ class LikesController < ApplicationController
     @like = current_user.likes.find_by(likeable: @likeable)
     if @like.destroy
       if @likeable.class == Post
-        redirect_to post_path(@likeable), notice: 'You unliked this post!'
+        redirect_to post_path(@likeable), notice: t('likes.destroy.success_post')
       elsif @likeable.class == Comment
-        redirect_to post_path(@likeable.post), notice: 'You unliked this comment!'
+        redirect_to post_path(@likeable.post), notice: t('likes.destroy.success_comment')
       end
     else
-      redirect_to post_path(@likeable), alert: 'Failed to unlike this post!'
+      redirect_to post_path(@likeable), alert: t('likes.destroy.failure')
     end
   end
 
@@ -40,9 +40,10 @@ class LikesController < ApplicationController
 
   def likeable_notice(likeable, liked = true)
     if likeable.is_a?(Post)
-      liked ? 'You liked this post!' : 'You unliked this post!'
+      liked ? t('likes.create.success_post') : t("likes.destroy.success_post")
+
     elsif likeable.is_a?(Comment)
-      liked ? 'You liked this comment!' : 'You unliked this comment!'
+      liked ? t('likes.create.success_comment') : t('likes.destroy.success_post')
     end
   end
 
