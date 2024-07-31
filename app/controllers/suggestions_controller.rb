@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SuggestionsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_post, only: %i[create update destroy reply edit reject]
 
   def create
@@ -22,25 +21,25 @@ class SuggestionsController < ApplicationController
 
   def update
     @suggestion = current_user.suggestions.find(params[:id])
-    if @suggestion.update(suggestion_params)
-      redirect_to @post, notice: t('suggestions.update.success')
+    if params[:reject]
+      @suggestion.update(is_rejected: true)
+      @suggestion.destroy
+      redirect_to @post, notice: t('suggestions.reject.success')
     else
-      render 'posts/show'
-      flash[:alert] = t('suggestions.update.failure')
+      if @suggestion.update(suggestion_params)
+        redirect_to @post, notice: t('suggestions.update.success')
+      else
+        render 'posts/show'
+        flash[:alert] = t('suggestions.update.failure')
+      end
     end
   end
+
 
   def destroy
     @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
     redirect_to @post, notice: t('suggestions.destroy.success')
-  end
-
-  def reject
-    @suggestion = @post.suggestions.find(params[:id])
-    @suggestion.update(is_rejected: true)
-    @suggestion.destroy
-    redirect_to @post,  notice: t('suggestions.reject.success')
   end
 
   def reply

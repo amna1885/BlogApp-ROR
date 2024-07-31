@@ -7,14 +7,11 @@
         Commented by: <%= comment.user.email %>
       </p>
       <div class="ui buttons">
-        <% if comment.reported? %>
-          <%= button_to 'Unreport', unreport_post_comment_path(comment.post_id,comment), method: :patch, class: "ui button" %>
-        <% else %>
-          <%= button_to 'Report', report_comment_path(comment), method: :patch, class: "ui button" %>
-        <% end %>
-        <% if current_user.moderator? %>
-          <%= link_to 'Delete', comment, method: :delete, class: "ui button" %>
-        <% end %>
+       <% if comment.reported? %>
+            <%= button_to 'Unreport', post_comment_path(comment.post, comment), method: :delete, params: { unreport: true }, class: "ui button" %>
+          <% else %>
+            <%= button_to 'Report', report_comment_path(post_id: comment.post, id: comment), method: :post, class: "ui button" %>
+          <% end %>
       </div>
     </div>
   <% end %>

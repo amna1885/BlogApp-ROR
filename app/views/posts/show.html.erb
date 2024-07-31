@@ -31,7 +31,7 @@
         <ul class="ui divided list">
           <% @post.comments.each do |comment| %>
             <% unless comment.reported? %>
-                              <%= render 'comments/comment', comment: comment %>
+    <%= render partial: 'comments/comment', locals: { post: @post, comment: comment } %>
             <% end %>
           <% end %>
         </ul>

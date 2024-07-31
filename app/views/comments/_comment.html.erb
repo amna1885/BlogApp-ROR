@@ -32,7 +32,7 @@
       </div>
       <div class="ui grid">
         <div class="sixteen wide column">
-          <%= link_to 'Report', report_post_comment_path(comment), method: :patch,  class: "ui red button" %>
+<%= link_to "Report", post_comment_reports_path(post_id: post.id, comment_id: comment.id), method: :post %>
         </div>
       </div>
     </div>
@@ -68,10 +68,11 @@
                   <% end %>
                 </div>
                   <div class="eight wide column">
-                   <%= link_to 'Report', report_post_comment_path(@post, comment), method: :patch, class: "ui red button" %>
-                  </div>
-                </div>
-              </div>
+                    <% if comment.reported? %>
+  <%= button_to 'Unreport', comment_reports_path(comment), method: :delete, class: "ui button" %>
+<% else %>
+  <%= button_to 'Report', comment_reports_path(comment), method: :post, class: "ui button" %>
+<% end %>
             </div>
           </li>
         <% end %>

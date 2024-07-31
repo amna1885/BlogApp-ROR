@@ -11,12 +11,9 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
   has_many :suggestions, dependent: :destroy
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lockable
 
-  # :confirmable if needed
   attr_accessor :login_attempts
 
   before_save :update_login_attempts
@@ -29,28 +26,6 @@ class User < ApplicationRecord
 
   def is_moderator?
     has_role?(:moderator)
-  end
-
-  def like(post)
-    return if post.blank?
-
-    likes.create!(post: post)
-  end
-
-  def liked_comment?(comment)
-    return if comment.blank?
-
-    comment_likes.create!(comment: comment)
-  end
-
-  def unlike_comment(comment)
-    return if comment.blank?
-
-    comment_likes.find_by(comment: comment)&.destroy
-  end
-
-  def unlike(post)
-    likes.find_by(post: post).destroy
   end
 
   def suggestions_on_own_posts

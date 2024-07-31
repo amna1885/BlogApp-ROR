@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  include Postable
   include CacheControlConcern
   load_and_authorize_resource
 
-  before_action :authenticate_user!, only: %i[create new]
   before_action :set_post, only: %i[show approve reject report destroy like unreport unpublish]
   before_action :set_cache_control
   before_action :check_post_status, only: %i[approve reject]
@@ -49,40 +49,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def approve
-    @post.update(is_approved: true, status: :approved)
-    redirect_to root_path, notice: t('posts.index.approve.success')
-  end
-
-  def reject
-    @post.update(is_approved: false, status: :rejected)
-    redirect_to root_path, notice: t('posts.index.reject.success')
-  end
-
-  def pending_approval
-    @pending_posts = Post.where(status: 'pending')
-  end
-
-  def report
-    @post.update(is_reported: true)
-    redirect_to root_path, notice: t('posts.index.report.success')
-  end
-
-  def reported_posts
-    @reported_posts = Post.where(is_reported: true)
-  end
-
-  def unreport
-    @post.update(status: 'rejected', is_reported: false)
-    redirect_to reported_posts_path, notice: t('posts.index.unreport.success')
-  end
-
-  def unpublish
-    @post.update(status: 'rejected', is_reported: true)
-    @post.destroy
-    redirect_to reported_posts_path, notice: t('posts.index.unpublish.success')
-  end
-
   def update
     if @post.update(post_params)
       redirect_to @post, notice: t('posts.index.update.success')
@@ -94,6 +60,34 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, notice: t('posts.index.destroy.success')
+  end
+
+  def approve
+    approve_post
+  end
+
+  def reject
+    reject_post
+  end
+
+  def report
+    report_post
+  end
+
+  def unreport
+    unreport_post
+  end
+
+  def unpublish
+    unpublish_post
+  end
+
+  def pending_approval
+    pending_approval_post
+  end
+
+  def reported_posts
+    reported_posts
   end
 
   private

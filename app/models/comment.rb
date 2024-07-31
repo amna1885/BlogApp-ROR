@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :post
+  has_many :reports
   has_many :likes, as: :likeable
   has_many :comment_likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user

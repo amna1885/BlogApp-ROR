@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_30_143715) do
+ActiveRecord::Schema.define(version: 2024_07_31_160817) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2024_07_30_143715) do
     t.text "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "comment_id"
     t.index ["post_id"], name: "index_reports_on_post_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
