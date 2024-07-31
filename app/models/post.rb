@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   belongs_to :reporter, class_name: 'User', optional: true, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :likes, as: :likeable
   has_many :comments, dependent: :destroy
   has_many :suggestions, dependent: :destroy
   accepts_nested_attributes_for :comments
@@ -22,20 +22,20 @@ class Post < ApplicationRecord
   validates :title, presence: true,
                     length: { minimum: 5, maximum: 10, message: 'must be between 5 and 10 characters long.' }
   validates :description, presence: true, length: { minimum: 10, message: 'must be at least 10 characters long.' }
-  validates :approved, inclusion: { in: [true, false] }, on: :update
+  validates :is_approved, inclusion: { in: [true, false] }, on: :update
 
-  scope :pending_approval, -> { where(approved: false, status: 'pending') }
-  scope :approved, -> { where(approved: true) }
+  scope :pending_approval, -> { where(is_approved: false, status: 'pending') }
+  scope :approved, -> { where(is_approved: true) }
   scope :recent_posts, -> { order(created_at: :desc).limit(5) }
-  scope :moderated, -> { where.not(approved: nil) }
-  scope :reported_posts, -> { where(reported: true) }
+  scope :moderated, -> { where.not(is_approved: nil) }
+  scope :reported_posts, -> { where(is_reported: true) }
 
   def approve
-    update(approved: true)
+    update(is_approved: true)
   end
 
   def reject
-    update(approved: false)
+    update(is_approved: false)
   end
 
   private

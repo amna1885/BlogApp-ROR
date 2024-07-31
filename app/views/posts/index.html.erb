@@ -6,7 +6,7 @@
 
 <div class="ui divided list">
   <% if user_signed_in? && current_user.is_moderator? %>
-    <% @posts.where(approved: nil).each do |post| %>
+    <% @posts.where(is_approved: nil).each do |post| %>
       <div class="item">
         <%= link_to post.title, post_path(post) %>
         <div class="ui mini buttons">
@@ -16,7 +16,7 @@
       </div>
     <% end %>
   <% else %>
-    <% @posts.where(approved: true).each do |post| %>
+    <% @posts.where(is_approved: true).each do |post| %>
       <div class="item">
         <%= link_to post.title, post_path(post) %>
       </div>

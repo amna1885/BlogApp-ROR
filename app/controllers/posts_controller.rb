@@ -17,7 +17,7 @@ class PostsController < ApplicationController
       @posts = if current_user.has_role?(:moderator)
                  Post.all
                else
-                 Post.where(approved: true)
+                 Post.where(is_approved: true)
                end
     else
       flash[:error] = 'You need to sign in!!'
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     render text: 'Post not found', status: :not_found if @post.nil?
     @comment = Comment.new
     @suggestions = @post.suggestions
-    @reported_posts = Post.where(user: @post.user, reported: true)
+    @reported_posts = Post.where(user: @post.user, is_reported: true)
     render 'show'
   end
 
@@ -50,12 +50,12 @@ class PostsController < ApplicationController
   end
 
   def approve
-    @post.update(approved: true, status: :approved)
+    @post.update(is_approved: true, status: :approved)
     redirect_to root_path, notice: 'Post approved successfully'
   end
 
   def reject
-    @post.update(approved: false, status: :rejected)
+    @post.update(is_approved: false, status: :rejected)
     redirect_to root_path, notice: 'Post rejected successfully'
   end
 
@@ -64,21 +64,21 @@ class PostsController < ApplicationController
   end
 
   def report
-    @post.update(reported: true)
+    @post.update(is_reported: true)
     redirect_to root_path, notice: 'Post reported successfully'
   end
 
   def reported_posts
-    @reported_posts = Post.where(reported: true)
+    @reported_posts = Post.where(is_reported: true)
   end
 
   def unreport
-    @post.update(status: 'rejected', reported: false)
+    @post.update(status: 'rejected', is_reported: false)
     redirect_to reported_posts_path, notice: 'Post was successfully rejected.'
   end
 
   def unpublish
-    @post.update(status: 'rejected', reported: true)
+    @post.update(status: 'rejected', is_reported: true)
     @post.destroy
     redirect_to reported_posts_path, notice: 'Post was successfully unpublished.'
   end
@@ -96,17 +96,6 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
-  def toggle_like
-    if current_user.likes.exists?(post: @post)
-      current_user.likes.where(post: @post).destroy_all
-      flash[:notice] = 'You unliked this post.'
-    else
-      current_user.likes.create(post: @post)
-      flash[:notice] = 'You liked this post.'
-    end
-    redirect_to @post
-  end
-
   private
 
   def set_post
@@ -114,7 +103,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :attachment, :status, :approved, :reported)
+    params.require(:post).permit(:title, :description, :attachment, :status, :is_approved, :is_reported)
   end
 
   def check_post_status

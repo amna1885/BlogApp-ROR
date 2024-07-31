@@ -37,18 +37,21 @@ class SuggestionsController < ApplicationController
 
   def reject
     @suggestion = @post.suggestions.find(params[:id])
-    @suggestion.update(rejected: true)
+    @suggestion.update(is_rejected: true)
     @suggestion.destroy
     redirect_to @post, notice: 'Suggestion was successfully rejected.'
   end
 
   def reply
-    @suggestion = @post.suggestions.new(suggestion_params)
-    @suggestion.user = current_user
-    if @suggestion.save
-      redirect_to @post, notice: 'Reply was successfully created.'
+    @suggestion = @post.suggestions.find(params[:suggestion_id])
+    @reply = @suggestion.replies.build(suggestion_params)
+    @reply.user = current_user
+    @reply.post = @post
+
+    if @reply.save
+      redirect_to post_path(@post), notice: 'Reply created successfully'
     else
-      redirect_to @post, alert: 'Failed to create reply.'
+      redirect_to post_path(@post), alert: 'Failed to create reply.'
     end
   end
 
@@ -59,6 +62,6 @@ class SuggestionsController < ApplicationController
   end
 
   def suggestion_params
-    params.require(:suggestion).permit(:content, :rejected, :reply)
+    params.require(:suggestion).permit(:content, :is_rejected, :parent_id)
   end
 end

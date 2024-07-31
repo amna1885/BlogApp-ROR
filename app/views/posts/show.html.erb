@@ -13,11 +13,12 @@
           <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
           <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
         </div>
+
         <div class="extra content">
-          <% if current_user.likes.where(post: @post).empty? %>
-            <%= link_to 'Like', toggle_like_post_path(@post), method: :post, class: "ui primary button" %>
+          <% if current_user.likes.where(likeable: @post).empty? %>
+            <%= button_to 'Like', post_likes_path(@post), method: :post, class: "ui primary button" %>
           <% else %>
-            <%= link_to 'Unlike', toggle_like_post_path(@post), method: :post, class: "ui secondary button" %>
+            <%= button_to 'Unlike', post_like_path(@post, like: @post.likes.find_by(user: current_user)), method: :delete, class: "ui secondary button" %>
             You liked this post!
           <% end %>
         </div>
@@ -35,27 +36,35 @@
           <% end %>
         </ul>
       </div>
-      <div class="ui segment" style="flex: 1;">
-        <h2 class="ui header">Suggestions</h2>
-        <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
-          <div class="field">
-            <%= form.text_area :content, placeholder: "Add a suggestion" %>
-          </div>
-          <div class="field">
-            <%= form.submit "Submit Suggestion", class: "ui primary button" %>
-          </div>
+     <div class="ui segment" style="flex: 1;">
+    <h2 class="ui header">Suggestions</h2>
+    <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
+      <div class="field">
+        <%= form.text_area :content, placeholder: "Add a suggestion" %>
+      </div>
+      <div class="field">
+        <%= form.submit "Submit Suggestion", class: "ui primary button" %>
+      </div>
+    <% end %>
+    <% @post.suggestions.each do |suggestion| %>
+      <div class="ui segment">
+        <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
+        <% if suggestion.user == current_user %>
+          <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui primary button" %> |
+          <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete, class: "ui secondary button" %>
         <% end %>
-        <% @post.suggestions.each do |suggestion| %>
-          <div class="ui segment">
-            <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
-            <% if suggestion.user == current_user %>
-              <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui primary button" %> |
-              <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete, class: "ui secondary button" %>
-            <% end %>
-          </div>
+        <% if suggestion.replies.any? %>
+          <% suggestion.replies.each do |reply| %>
+            <%= reply.content %>
+          <% end %>
+        <% end %>
+        <%= form_with(model: [@post, Suggestion.new(parent_id: suggestion.id)], local: true, class: "ui form") do |form| %>
+          <%= form.text_area :content, placeholder: "Reply to this suggestion" %>
+          <%= form.submit "Reply", class: "ui button" %>
         <% end %>
       </div>
-    </div>
+    <% end %>
+  </div>
   </div>
   <div class="actions" style="margin-top: 20px;">
     <% if current_user == @post.user || current_user.admin? %>

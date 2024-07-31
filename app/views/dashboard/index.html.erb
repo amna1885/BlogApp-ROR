@@ -5,10 +5,8 @@
   <% @recent_posts.each do |post| %>
     <li class="item">
       <%= link_to post.title, post %>
-      <% if post.approved %>
+      <% if post.is_approved %>
         <p class="ui green text">This post has been approved</p>
-     <%# <% elsif !post.approved %>
-        <%# <p class="ui red text">This post has been rejected</p>  %>
       <% else %>
         <p class="ui orange text">This post is currently under review</p>
       <% end %>
@@ -20,7 +18,7 @@
 <ul class="ui list">
   <% @recent_comments.each do |comment| %>
     <li class="item">
-      <%= "#{comment.user.email}" %> commented <%= "#{comment.content}" %> on <%= "#{comment.post.title}" %>
+      <%= "#{comment.user.email}" %> commented <%= "#{comment.content}" %> on <%= link_to comment.post.title, comment.post %>
     </li>
   <% end %>
 </ul>
@@ -29,9 +27,25 @@
 <ul class="ui list">
   <% @recent_likes.each do |like| %>
     <li class="item">
-      <%= "#{like.user.email} liked #{like.post.title}" %>
+      <% if like.likeable_type == 'Post' %>
+        <% post = Post.find_by(id: like.likeable_id) %>
+        <% if post %>
+          <%= "#{like.user.email} liked the post: #{post.content}" %>
+        <% else %>
+          <%= "#{like.user.email} liked a post that has been deleted" %>
+        <% end %>
+      <% elsif like.likeable_type == 'Comment' %>
+        <% comment = Comment.find_by(id: like.likeable_id) %>
+        <% if comment %>
+          <% if comment.post %>
+            <%= "#{like.user.email}" %> liked a comment on <%= link_to comment.post.title, comment.post %>
+          <% else %>
+            <%= "#{like.user.email} liked a comment on a deleted post" %>
+          <% end %>
+        <% else %>
+          <%= "#{like.user.email} liked a comment that has been deleted" %>
+        <% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>
-
-

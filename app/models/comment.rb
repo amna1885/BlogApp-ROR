@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
 
   belongs_to :user
   belongs_to :post
-  has_many :likes, dependent: :destroy
+  has_many :likes, as: :likeable
   has_many :comment_likes, dependent: :destroy
   has_many :likers, through: :likes, source: :user
   belongs_to :parent, class_name: 'Comment', optional: true
@@ -15,6 +15,6 @@ class Comment < ApplicationRecord
   validates :post, presence: true
 
   def reported?
-    reported
+    is_reported
   end
 end

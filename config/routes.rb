@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   # Posts routes
   resources :posts do
+    resources :likes, only: %i[create destroy], defaults: { likeable_type: 'Post' }
     collection do
       get :pending_approval
       get :reported, action: :reported_posts
@@ -30,7 +31,6 @@ Rails.application.routes.draw do
       patch :unpublish
       get :report
       patch :unreport
-      post :toggle_like
     end
     resources :suggestions, only: %i[create update destroy edit] do
       member do
@@ -39,13 +39,12 @@ Rails.application.routes.draw do
       end
     end
     resources :comments do
+      resources :likes, only: %i[create destroy], defaults: { likeable_type: 'Comment' }
       member do
         get :report, action: :report_comment
         patch :report, action: :report_comment
         patch :unreport, action: :unreport_comment
         patch :unpublish
-        post :like
-        delete :unlike
       end
     end
   end
@@ -53,6 +52,8 @@ Rails.application.routes.draw do
   # Custom Comment Routes
   patch '/posts/:post_id/comments/:id/report', to: 'comments#report_comment', as: 'report_comment'
   get '/reported_comments', to: 'comments#reported_comments', as: 'reported_comments'
-  # Moderator Dashboard routes
+  delete '/unlike/:likeable_id', to: 'likes#destroy', as: 'unlike' # Moderator Dashboard routes
+  post '/like/:likeable_id', to: 'likes#create', as: 'like'
+
   resources :moderator_dashboard, only: [:index]
 end

@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
   def index
     @comments = if current_user.moderator?
-                  Comment.where(reported: true)
+                  Comment.where(is_reported: true)
                 else
                   Comment.all
                 end
@@ -44,19 +44,19 @@ class CommentsController < ApplicationController
 
   def report_comment
     @comment = Comment.find(params[:id])
-    @comment.update(reported: true)
+    @comment.update(is_reported: true)
     redirect_to root_path, notice: 'Comment has been reported successfully'
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path, alert: 'Comment not found.'
   end
 
   def reported_comments
-    @comments = Comment.where(reported: true)
+    @comments = Comment.where(is_reported: true)
   end
 
   def unreport_comment
     @comment = Comment.find(params[:id])
-    @comment.update(reported: false)
+    @comment.update(is_reported: false)
     redirect_to reported_comments_path, notice: 'Comment has been unreported succesfully'
   end
 
@@ -70,27 +70,6 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
-  end
-
-  def like
-    @comment = Comment.find_by(id: params[:id])
-    if @comment
-      current_user.liked_comment?(@comment)
-      redirect_to request.referer, notice: 'Comment liked successfully'
-    else
-      redirect_to root_path, alert: 'Comment not found'
-    end
-  end
-
-  def unlike
-    @comment = Comment.find_by(id: params[:id])
-    if @comment
-      current_user.unlike_comment(@comment)
-      current_user.comment_likes.find_by(comment: @comment)&.destroy
-      redirect_to request.referer, notice: 'Comment unliked successfully'
-    else
-      redirect_to root_path, alert: 'Comment not found'
-    end
   end
 
   private
