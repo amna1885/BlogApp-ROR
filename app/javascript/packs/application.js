@@ -7,9 +7,10 @@ import Rails from "@rails/ujs"
 // import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+//= require jquery
 import "trix"
 import "@rails/actiontext"
-
+import 'trix/dist/trix.css';
 Rails.start()
 ActiveStorage.start()
 

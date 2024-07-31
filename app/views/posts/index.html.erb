@@ -1,35 +1,39 @@
-<h1>Posts</h1>
+<h1 class="ui header">Posts</h1>
 
-<p><%= link_to 'Create New Post', new_post_path %></p>
+<p>
+  <%= link_to 'Create New Post', new_post_path, class: 'ui primary button' %>
+</p>
 
-<ul>
-  <% if current_user.is_moderator? %>
+<div class="ui divided list">
+  <% if user_signed_in? && current_user.is_moderator? %>
     <% @posts.where(approved: nil).each do |post| %>
-      <li>
+      <div class="item">
         <%= link_to post.title, post_path(post) %>
-        <%= button_to "Approve", approve_post_path(post), method: :patch %>
-        <%= button_to "Reject", reject_post_path(post), method: :patch %>
-      </li>
+        <div class="ui mini buttons">
+          <%= button_to "Approve", approve_post_path(post), method: :patch, class: 'ui green button' %>
+          <%= button_to "Reject", reject_post_path(post), method: :patch, class: 'ui red button' %>
+        </div>
+      </div>
     <% end %>
   <% else %>
     <% @posts.where(approved: true).each do |post| %>
-      <li>
+      <div class="item">
         <%= link_to post.title, post_path(post) %>
-      </li>
+      </div>
     <% end %>
   <% end %>
-</ul>
+</div>
 
 <% if current_user %>
   <p>
-    <%= link_to "Pending Approval", pending_approval_posts_path %>
+    <%= link_to "Pending Approval", pending_approval_posts_path, class: 'ui secondary button' %>
   </p>
 <% end %>
 
-  <p>
-    <%= link_to "Reported Posts", reported_posts_path %>
-  </p>
+<p>
+  <%= link_to "Reported Posts", reported_posts_path, class: 'ui secondary button' %>
+</p>
 
 <p>
-  <%= link_to "Reported Comments", reported_comments_path %>
+  <%= link_to "Reported Comments", reported_comments_path, class: 'ui secondary button' %>
 </p>

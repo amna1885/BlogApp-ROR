@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -15,9 +17,9 @@ module BlogApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.cloudinary = {
-      cloud_name: ENV['CLOUDINARY_CLOUD_NAME'],
-      api_key: ENV['CLOUDINARY_API_KEY'],
-      api_secret: ENV['CLOUDINARY_API_SECRET']
+      cloud_name: 'dvv93vh8p',
+      api_key: '274658269941387',
+      api_secret: 'Oa3ISWmOCXDzHm5iK4yqBR1Qy5M'
     }
     # Configuration for the application, engines, and railties goes here.
     #
@@ -26,5 +28,12 @@ module BlogApp
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.active_storage.service = :cloudinary
+
+    Cloudinary.config_from_url('cloudinary://274658269941387:Oa3ISWmOCXDzHm5iK4yqBR1Qy5M@dvv93vh8p')
+
+    Cloudinary.config do |config|
+      config.secure = true
+    end
   end
 end

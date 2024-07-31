@@ -1,6 +1,81 @@
-<div class="comment">
-  <p><strong><%= comment.user.email %>:</strong></p>
-  <p><%= comment.content %></p>
-  <%= link_to 'Edit', edit_post_comment_path(comment.post, comment) if can?(:update, comment) %>
-  <%= link_to 'Delete', post_comment_path(comment.post, comment), method: :delete %>
-</div>
+<li class="item">
+  <div class="content">
+    <a class="author"><%= comment.user.email %></a>
+    <div class="metadata">
+      <div class="date"><%= time_ago_in_words(comment.created_at) %> ago</div>
+    </div>
+    <div class="text">
+      <%= comment.content %>
+    </div>
+    <div class="actions">
+      <div class="ui grid">
+        <div class="eight wide column">
+          <% if can?(:update, comment) %>
+            <%= link_to 'Edit', edit_post_comment_path(@post, comment), class: "ui primary button" %>
+          <% end %>
+        </div>
+        <div class="eight wide column">
+          <%= link_to 'Delete', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui secondary button" %>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div class="eight wide column">
+          <% if current_user.comment_likes.exists?(comment: comment) %>
+            <%= link_to "Unlike", unlike_post_comment_path(@post, comment), method: :delete, class: "ui secondary button" %>
+          <% else %>
+            <%= link_to "Like", like_post_comment_path(@post, comment), method: :post, class: "ui primary button" %>
+          <% end %>
+        </div>
+        <div class="eight wide column">
+          <%= link_to 'Reply', new_post_comment_path(@post, parent_id: comment.id), class: "ui primary button" %>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div class="sixteen wide column">
+          <%= link_to 'Report', report_post_comment_path(comment), method: :patch,  class: "ui red button" %>
+        </div>
+      </div>
+    </div>
+    <% if comment.children.any? %>
+      <ul class="ui divided list">
+        <% comment.children.each do |child| %>
+          <li class="item">
+            <div class="content">
+              <a class="author"><%= child.user.email %></a>
+              <div class="metadata">
+                <div class="date"><%= time_ago_in_words(child.created_at) %> ago</div>
+              </div>
+              <div class="text">
+                <%= child.content %>
+              </div>
+              <div class="actions">
+                <div class="ui grid">
+                  <div class="eight wide column">
+                    <% if can?(:update, child) %>
+                      <%= link_to 'Edit', edit_post_comment_path(@post, child), class: "ui primary button" %>
+                    <% end %>
+                  </div>
+                  <div class="eight wide column">
+                    <%= link_to 'Delete', post_comment_path(@post, child), method: :delete, data: { confirm: 'Are you sure?' }, class: "ui secondary button" %>
+                  </div>
+                </div>
+                <div class="ui grid">
+                  <div class="eight wide column">
+                    <% if current_user.comment_likes.exists?(comment: child) %>
+                      <%= link_to "Unlike", unlike_post_comment_path(@post, child), method: :patch, class: "ui secondary button" %>
+                    <% else %>
+                      <%= link_to "Like", like_post_comment_path(@post, child), method: :patch, class: "ui primary button" %>
+                    <% end %>
+                  </div>
+                  <div class="eight wide column">
+                   <%= link_to 'Report', report_post_comment_path(@post, comment), method: :patch, class: "ui red button" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</li>

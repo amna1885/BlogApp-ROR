@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -53,6 +55,8 @@ gem 'actiontext', '~> 6.0'
 gem 'cloudinary'
 
 gem 'sidekiq', '~> 5.2.8'
+
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
   before_action :authenticate_user!
@@ -7,8 +9,7 @@ class ProjectsController < ApplicationController
     @projects = policy_scope(Project)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @project = Project.new
@@ -26,8 +27,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @project.update(project_params)

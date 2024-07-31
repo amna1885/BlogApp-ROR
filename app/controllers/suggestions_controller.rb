@@ -1,15 +1,18 @@
+# frozen_string_literal: true
+
 class SuggestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i[create update destroy reply edit]
+  before_action :set_post, only: %i[create update destroy reply edit reject]
 
   def create
     @suggestion = @post.suggestions.build(suggestion_params)
     @suggestion.user = current_user
 
     if @suggestion.save
-      redirect_to @post, notice: 'Suggestion was successfully created.'
+      redirect_to post_path(@post), notice: 'Suggestion created successfully'
     else
-      render 'posts/show', alert: 'Error creating suggestion.'
+      flash[:error] = "Suggestion can't be empty"
+      redirect_to post_path(@post)
     end
   end
 
@@ -33,6 +36,7 @@ class SuggestionsController < ApplicationController
   end
 
   def reject
+    @suggestion = @post.suggestions.find(params[:id])
     @suggestion.update(rejected: true)
     redirect_to @post, notice: 'Suggestion was successfully rejected.'
   end

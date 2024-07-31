@@ -1,34 +1,41 @@
 {
-  "application.js": "/packs/js/application-cb351d7375b214e62e8c.js",
-  "application.js.map": "/packs/js/application-cb351d7375b214e62e8c.js.map",
+  "application.js": "/packs/js/application-4305c9772801469a29f5.js",
+  "application.js.map": "/packs/js/application-4305c9772801469a29f5.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-cb351d7375b214e62e8c.js"
+        "/packs/js/application-4305c9772801469a29f5.js"
       ],
       "js.map": [
-        "/packs/js/application-cb351d7375b214e62e8c.js.map"
+        "/packs/js/application-4305c9772801469a29f5.js.map"
       ]
     },
     "rails_admin": {
       "js": [
-        "/packs/js/rails_admin-3cab6fcf2d7549b51597.js"
+        "/packs/js/rails_admin-08e1c3729fe25bb64102.js"
       ],
       "js.map": [
-        "/packs/js/rails_admin-3cab6fcf2d7549b51597.js.map"
+        "/packs/js/rails_admin-08e1c3729fe25bb64102.js.map"
       ]
     },
     "trix": {
       "js": [
-        "/packs/js/trix-f3e746697bc7457aa5b7.js"
+        "/packs/js/trix-44bf26ae830243ea42ca.js"
       ],
       "js.map": [
-        "/packs/js/trix-f3e746697bc7457aa5b7.js.map"
+        "/packs/js/trix-44bf26ae830243ea42ca.js.map"
       ]
     }
   },
-  "rails_admin.js": "/packs/js/rails_admin-3cab6fcf2d7549b51597.js",
-  "rails_admin.js.map": "/packs/js/rails_admin-3cab6fcf2d7549b51597.js.map",
-  "trix.js": "/packs/js/trix-f3e746697bc7457aa5b7.js",
-  "trix.js.map": "/packs/js/trix-f3e746697bc7457aa5b7.js.map"
+  "media/webfonts/fa-solid-900.eot": "/packs/media/webfonts/fa-solid-900-9bbb245e.eot",
+  "media/webfonts/fa-solid-900.svg": "/packs/media/webfonts/fa-solid-900-7a8b4f13.svg",
+  "media/webfonts/fa-solid-900.ttf": "/packs/media/webfonts/fa-solid-900-be9ee23c.ttf",
+  "media/webfonts/fa-solid-900.woff": "/packs/media/webfonts/fa-solid-900-eeccf4f6.woff",
+  "media/webfonts/fa-solid-900.woff2": "/packs/media/webfonts/fa-solid-900-1551f4f6.woff2",
+  "rails_admin.js": "/packs/js/rails_admin-08e1c3729fe25bb64102.js",
+  "rails_admin.js.map": "/packs/js/rails_admin-08e1c3729fe25bb64102.js.map",
+  "trix.js": "/packs/js/trix-44bf26ae830243ea42ca.js",
+  "trix.js.map": "/packs/js/trix-44bf26ae830243ea42ca.js.map",
+  "vendors~actioncable.js": "/packs/js/vendors~actioncable-0ae924d39602fdcb0d09.chunk.js",
+  "vendors~actioncable.js.map": "/packs/js/vendors~actioncable-0ae924d39602fdcb0d09.chunk.js.map"
 }

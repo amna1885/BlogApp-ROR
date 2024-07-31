@@ -1,16 +1,19 @@
-<h1>Reported Posts</h1>
+<h1 class="ui header">Reported Posts</h1>
 
 <% if @reported_posts.any? %>
-  <ul>
+  <div class="ui divided list">
     <% @reported_posts.each do |post| %>
-      <li>
-        <%= post.title %>
-        <%= button_to 'Remove Report', unreport_post_path(post), method: :patch %>
-        <%= button_to 'Unpublish', unpublish_post_path(post), method: :patch %>
-
-      </li>
+      <div class="item">
+        <div class="content">
+          <%= post.title %>
+          <div class="right floated content">
+            <%= link_to 'Remove Report', unreport_post_path(post), method: :patch, class: 'ui tiny button' %>
+            <%= link_to 'Unpublish', unpublish_post_path(post), method: :patch, class: 'ui tiny red button' %>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 <% else %>
-  <p>There are currently no reported posts.</p>
+  <p class="ui message">There are currently no reported posts.</p>
 <% end %>

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 require 'active_support/core_ext/integer/time'
+require 'cloudinary'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -88,10 +91,5 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
-  Rails.application.configure do
-    config.cloudinary_api_key = '274658269941387'
-    config.cloudinary_api_secret = 'Oa3ISWmOCXDzHm5iK4yqBR1Qy5M'
-    config.cloudinary_cloud_name = 'dvv93vh8p'
-  end
+  config.active_storage.service = :cloudinary
 end

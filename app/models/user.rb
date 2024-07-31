@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :roles, dependent: :destroy
 
   rolify
-  has_many :posts, dependent: :destroy
+  has_many :posts
   has_many :comments, dependent: :destroy
-  has_many :comment_likes
+  has_many :comment_likes, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   has_many :suggestions, dependent: :destroy
@@ -30,19 +32,19 @@ class User < ApplicationRecord
   end
 
   def like(post)
-    return unless post.present?
+    return if post.blank?
 
     likes.create!(post: post)
   end
 
   def liked_comment?(comment)
-    return unless comment.present?
+    return if comment.blank?
 
     comment_likes.create!(comment: comment)
   end
 
   def unlike_comment(comment)
-    return unless comment.present?
+    return if comment.blank?
 
     comment_likes.find_by(comment: comment)&.destroy
   end

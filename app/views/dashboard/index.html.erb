@@ -1,43 +1,37 @@
-<h1>Dashboard of BlogApp</h1>
+<h1 class="ui header">Dashboard of BlogApp</h1>
 
-<h2>Recent Posts</h2>
-<ul>
+<h2 class="ui sub header">Recent Posts</h2>
+<ul class="ui list">
   <% @recent_posts.each do |post| %>
-    <%# <% if current_user.is_moderator? %>
-      <li>
-        <%= link_to post.title, post %>
-            <% if post.approved %>
-            <p> "This post has been approved" </p>
-          <% else %>
-            <p>This post has been rejected or is currently under review</p>
-          <% end %>
-      </li>
+    <li class="item">
+      <%= link_to post.title, post %>
+      <% if post.approved %>
+        <p class="ui green text">This post has been approved</p>
+     <%# <% elsif !post.approved %>
+        <%# <p class="ui red text">This post has been rejected</p>  %>
+      <% else %>
+        <p class="ui orange text">This post is currently under review</p>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 
-<h2>Recent Comments</h2>
-<ul>
+<h2 class="ui sub header">Recent Comments</h2>
+<ul class="ui list">
   <% @recent_comments.each do |comment| %>
-    <li>
+    <li class="item">
       <%= "#{comment.user.email}" %> commented <%= "#{comment.content}" %> on <%= "#{comment.post.title}" %>
-
     </li>
   <% end %>
 </ul>
 
-<h2>Recent Likes</h2>
-<ul>
+<h2 class="ui sub header">Recent Likes</h2>
+<ul class="ui list">
   <% @recent_likes.each do |like| %>
-    <li>
-<%= "#{like.user.email} liked #{like.post.title}" %>
+    <li class="item">
+      <%= "#{like.user.email} liked #{like.post.title}" %>
     </li>
   <% end %>
 </ul>
 
-<p>
-  <%= link_to "View All Posts", posts_path %>
-</p>
 
-<p>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-</p>

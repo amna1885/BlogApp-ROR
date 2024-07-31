@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   include CacheControlConcern
   load_and_authorize_resource
@@ -7,18 +9,25 @@ class PostsController < ApplicationController
   before_action :set_cache_control
   before_action :check_post_status, only: %i[approve reject]
 
-  def index
-    @reported_posts = Post.reported_posts
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_record_not_found
 
-    @posts = if current_user.is_moderator?
-               Post.all
-             else
-               Post.where(approved: true)
-             end
+  def index
+    if user_signed_in?
+      @reported_posts = Post.reported_posts
+      @posts = if current_user.has_role?(:moderator)
+                 Post.all
+               else
+                 Post.where(approved: true)
+               end
+    else
+      flash[:error] = 'You need to sign in!!'
+      redirect_to new_user_session_path
+    end
   end
 
   def show
     @posts = Post.all
+    render text: 'Post not found', status: :not_found if @post.nil?
     @comment = Comment.new
     @suggestions = @post.suggestions
     @reported_posts = Post.where(user: @post.user, reported: true)
@@ -31,15 +40,11 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.attachment = @post.attachment.read if @post.attachment
-
     if @post.save
-      if params[:post][:attachment].present?
-        public_id = AttachmentUploader.upload(params[:post][:attachment])
-        @post.update(attachment: public_id)
-      end
-      redirect_to root_path, notice: 'Post was successfully created.'
+      flash[:success] = 'Post created successfully'
+      redirect_to @post
     else
+      flash[:error] = 'There was an error creating the post'
       render :new
     end
   end
@@ -68,12 +73,13 @@ class PostsController < ApplicationController
   end
 
   def unreport
-    @post.update(reported: false)
-    redirect_to reported_posts_path, notice: 'Post unreported successfully!'
+    @post.update(status: 'rejected', reported: false)
+    redirect_to reported_posts_path, notice: 'Post was successfully rejected.'
   end
 
   def unpublish
-    @post.update(reported: true)
+    @post.update(status: 'rejected', reported: true)
+    @post.destroy
     redirect_to reported_posts_path, notice: 'Post was successfully unpublished.'
   end
 
@@ -90,15 +96,15 @@ class PostsController < ApplicationController
     redirect_to posts_url, notice: 'Post was successfully destroyed.'
   end
 
-  def like
-    current_user.like(@comment)
-    if current_user.likes.where(post: @post).empty?
-      current_user.like(@post)
-      redirect_to @post, notice: 'You liked this post!'
+  def toggle_like
+    if current_user.likes.exists?(post: @post)
+      current_user.likes.where(post: @post).destroy_all
+      flash[:notice] = 'You unliked this post.'
     else
-      current_user.unlike(@post)
-      redirect_to @post, notice: 'You unliked this post!'
+      current_user.likes.create(post: @post)
+      flash[:notice] = 'You liked this post.'
     end
+    redirect_to @post
   end
 
   private
@@ -108,12 +114,16 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :attachment, :status, :approved)
+    params.require(:post).permit(:title, :content, :attachment, :status, :approved, :reported)
   end
 
   def check_post_status
     return unless @post.approved? || @post.rejected?
 
     redirect_to root_path, alert: 'Post is already approved or rejected'
+  end
+
+  def handle_record_not_found
+    redirect_to root_path, alert: 'Post not found'
   end
 end

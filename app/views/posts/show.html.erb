@@ -1,102 +1,67 @@
-<h1><%= @post.title %></h1>
-
-<p><%= @post.content %></p>
-
-<% if @post.attachment.present? %>
-  <%= link_to 'Download Attachment', @post.attachment_url %>
-<% end %>
-
-<h2>Comments</h2>
-<ul>
-  <% @post.comments.each do |comment| %>
-    <% if !comment.reported? %>
-      <li>
-        <%= comment.content %>
-        <% if comment.id.present? %>
-          <%= link_to 'Edit', edit_post_comment_path(@post, comment) %> |
-          <%= link_to 'Go To Report', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-        <% if current_user.comment_likes.exists?(comment: comment) %>
-          <%= button_to "Unlike", unlike_comment_path(comment), method: :patch %>
-        <% else %>
-          <%= button_to "Like", like_comment_path(comment), method: :patch %>
-        <% end %>
-        <%= link_to 'Reply', new_post_comment_path(@post) %>
-        <% if comment.children.any? %>
-          <ul>
-            <% comment.children.each do |child| %>
-              <li>
-                <%= child.content %>
-                <% if child.id.present? %>
-                  <%= link_to 'Edit', edit_post_comment_path(@post, child) %> |
-                  <%= link_to 'Delete', post_comment_path(@post, child), method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
-                <% if current_user.comment_likes.exists?(comment: child) %>
-                  <%= button_to "Unlike", unlike_comment_path(child), method: :patch %>
-                <% else %>
-                  <%= button_to "Like", like_comment_path(child), method: :patch %>
-                <% end %>
-              </li>
+<div class="ui container">
+  <div class="ui grid" style="display: flex;">
+    <div class="twelve wide column" style="padding-right: 0; display: flex; flex-direction: column;">
+      <div class="ui card" style="width: 100%; flex: 1;">
+        <div class="content">
+          <h1 class="ui header">Title: <%= @post.title %></h1>
+          <p><h3>Content:</h3> <%= @post.content %></p>
+          <% if @post.attachment.present? %>
+            <%= link_to 'Download Attachment', @post.attachment_url, class: "ui primary button" %>
+          <% end %>
+        </div>
+        <div class="image">
+          <%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}", class: "ui image" %>
+          <%= image_tag AttachmentUploader.url(@post.attachment), class: "ui image" %>
+        </div>
+        <div class="extra content">
+          <% if current_user.likes.where(post: @post).empty? %>
+            <%= link_to 'Like', toggle_like_post_path(@post), method: :post, class: "ui primary button" %>
+          <% else %>
+            <%= link_to 'Unlike', toggle_like_post_path(@post), method: :post, class: "ui secondary button" %>
+            You liked this post!
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="four wide column" style="padding-left: 20px; display: flex; flex-direction: column;">
+      <div class="ui segment" style="flex: 1;">
+        <h2 class="ui header">Comments</h2>
+        <%= render 'comments/form', post: @post, comment: Comment.new %>
+        <ul class="ui divided list">
+          <% @post.comments.each do |comment| %>
+            <% unless comment.reported? %>
+                              <%= render 'comments/comment', comment: comment %>
             <% end %>
-          </ul>
+          <% end %>
+        </ul>
+      </div>
+      <div class="ui segment" style="flex: 1;">
+        <h2 class="ui header">Suggestions</h2>
+        <%= form_with(model: [@post, Suggestion.new], local: true, class: "ui form") do |form| %>
+          <div class="field">
+            <%= form.text_area :content, placeholder: "Add a suggestion" %>
+          </div>
+          <div class="field">
+            <%= form.submit "Submit Suggestion", class: "ui primary button" %>
+          </div>
         <% end %>
-      </li>
+        <% @post.suggestions.each do |suggestion| %>
+          <div class="ui segment">
+            <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
+            <% if suggestion.user == current_user %>
+              <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion), class: "ui primary button" %> |
+              <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete, class: "ui secondary button" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="actions" style="margin-top: 20px;">
+    <% if current_user == @post.user || current_user.admin? %>
+      <%= link_to "Edit", edit_post_path(@post), class: "ui button" %>
+      <%= link_to "Delete", post_path(@post), method: :delete, class: "ui button negative" %>
     <% end %>
-  <% end %>
-</ul>
-
-
-<%= image_tag "https://res.cloudinary.com/#{Cloudinary.config.cloud_name}/image/upload/#{@post.attachment}" %>
-<%= image_tag AttachmentUploader.url(@post.attachment) %>
-
-<% if current_user.likes.where(post: @post).empty? %>
-  <%= link_to 'Like', like_post_path(@post), method: :post %>
-<% else %>
-  <%= link_to 'Unlike', like_post_path(@post), method: :delete %>
-  You liked this post!
-<% end %>
-
-<ul>
-  <% @reported_posts.each do |post| %>
-  <li>
-    <%= post.title %>
-    <% if post.reporter %>
-      (reported by <%= post.reporter %>)
-    <% else %>
-      (no reporter)
-    <% end %>
-    <%= link_to 'View', post_path(post) %>
-  </li>
-<% end %>
-</ul>
-
-<%= render 'comments/form', post: @post, comment: Comment.new %>
-
-</br>
-
-<%= form_with(model: [@post, Suggestion.new], local: true) do |form| %>
-  <%= form.text_area :content, placeholder: "Add a suggestion" %>
-  <%= form.submit "Submit Suggestion" %>
-<% end %>
-
-<% @post.suggestions.each do |suggestion| %>
-  <p><%= suggestion.content %> by <%= suggestion.user.email %></p>
-  <% if suggestion.user == current_user %>
-    <%= link_to 'Edit', edit_post_suggestion_path(@post, suggestion) %> |
-    <%= button_to 'Delete', post_suggestion_path(@post, suggestion), method: :delete %>
-  <% end %>
-  <%= form_with(model: [@post, Suggestion.new], url: reply_post_suggestion_path(@post, suggestion), local: true) do |form| %>
-    <%= form.text_area :content, placeholder: "Reply to this suggestion" %>
-    <%= form.submit "Reply" %>
-  <% end %>
-<% end %>
-
-<p>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %> |
-  <%= button_to 'Report', report_post_path(@post), method: :patch %> |
-  <%= button_to 'Delete', post_path(@post), method: :delete %>
-
-</p>
-
-
+    <%= link_to "Report", report_post_path(@post), class: "ui button" %>
+  </div>
+</div>
