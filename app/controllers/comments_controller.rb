@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
-  before_action :set_post, only: %i[create edit update show new]
+  before_action :set_post, only: %i[create edit update show new destroy]
   before_action :set_comment, only: %i[show edit update destroy]
-  before_action :authenticate_user! # Ensure user is authenticated
 
   def index
-    @comments = if current_user.moderator?
-                  Comment.where(reported: true)
+    @comments = if params[:reported].present? && current_user.moderator?
+                  Comment.reported_posts
                 else
                   Comment.all
                 end
+    @comments ||= []
   end
 
   def new
@@ -18,14 +18,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
 
     if @comment.save
-      redirect_to post_path(@post), notice: 'Comment created successfully'
+      redirect_to post_path(@post), notice: t('comments.create.success')
     else
-      flash[:error] = @comment.errors.full_messages.to_sentence
+      flash[:error] = t('comments.errors', errors: @comment.errors.full_messages.to_sentence)
       redirect_to post_path(@post)
     end
   end
@@ -36,80 +35,42 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to post_path(@post), notice: 'Comment was successfully updated.'
+      redirect_to post_path(@post), notice: t('comments.update.success')
     else
       render :edit
     end
   end
 
-  def report_comment
-    @comment = Comment.find(params[:id])
-    @comment.update(reported: true)
-    redirect_to root_path, notice: 'Comment has been reported successfully'
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, alert: 'Comment not found.'
-  end
-
-  def reported_comments
-    @comments = Comment.where(reported: true)
-  end
-
-  def reported
-    @reported_comments = Comment.where(reported: true)
-  end
-
-  def unreport_comment
-    @comment = Comment.find(params[:id])
-    @comment.update(reported: false)
-    redirect_to reported_comments_path, notice: 'Comment has been unreported succesfully'
-  end
-
-  def unpublish_comment
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to reported_comments_path, notice: 'Comment was successfully unpublished'
-  end
-
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-    redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
-  end
-
-  def like
-    @comment = Comment.find_by(id: params[:id])
-    if @comment
-      current_user.liked_comment?(@comment)
-      redirect_to request.referer, notice: 'Comment liked successfully'
+    if params[:unpublish]
+      unpublish_comment
     else
-      redirect_to root_path, alert: 'Comment not found'
-    end
-  end
-
-  def unlike
-    @comment = Comment.find_by(id: params[:id])
-    if @comment
-      current_user.unlike_comment(@comment)
-      current_user.comment_likes.find_by(comment: @comment)&.destroy
-      redirect_to request.referer, notice: 'Comment unliked successfully'
-    else
-      redirect_to root_path, alert: 'Comment not found'
+      @comment.destroy
+      redirect_to post_path(@post), notice: t('comments.destroy.success')
     end
   end
 
   private
 
   def set_post
-    @post = Post.find(params[:post_id]) if params[:post_id].present?
+    @post = Post.find_by(id: params[:post_id])
+    redirect_to root_path, alert: 'Post not found' if @post.nil?
   end
 
   def set_comment
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
-    @comment = Comment.find(params[:id])
+    @comment = @post.comments.find_by(id: params[:id])
+    redirect_to post_path(@post), alert: 'Comment not found' if @comment.nil?
   end
 
   def comment_params
     params.require(:comment).permit(:content, :attachment, :user_id, :parent_id)
   end
+
+  def unpublish_comment
+    @comment.destroy
+    @comments = Comment.reported_posts
+    redirect_to comments_path(reported: true), notice: t('comments.unpublish.success')
+  end
 end
+
+

@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-
 class PostsController < ApplicationController
+  include Postable
   include CacheControlConcern
   load_and_authorize_resource
 
-  before_action :authenticate_user!, only: %i[create new]
-  before_action :set_post, only: %i[show approve reject report destroy like unreport unpublish]
+  before_action :set_post, except: %i[index new create reported_posts]
   before_action :set_cache_control
   before_action :check_post_status, only: %i[approve reject]
 
@@ -13,25 +12,17 @@ class PostsController < ApplicationController
 
   def index
     if user_signed_in?
-      @reported_posts = Post.reported_posts
-      @posts = if current_user.has_role?(:moderator)
-                 Post.all
-               else
-                 Post.where(approved: true)
-               end
+      @posts = current_user.has_role?(:moderator) ? Post.all : Post.approved
     else
-      flash[:error] = 'You need to sign in!!'
+      flash[:error] = t('posts.index.need_sign_in')
       redirect_to new_user_session_path
     end
   end
 
   def show
-    @posts = Post.all
-    render text: 'Post not found', status: :not_found if @post.nil?
+    render text: t('posts.not_found'), status: :not_found if @post.nil?
     @comment = Comment.new
     @suggestions = @post.suggestions
-    @reported_posts = Post.where(user: @post.user, reported: true)
-    render 'show'
   end
 
   def new
@@ -41,51 +32,17 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = 'Post created successfully'
+      flash[:success] = t('posts.create.success')
       redirect_to @post
     else
-      flash[:error] = 'There was an error creating the post'
+      flash[:error] = t('posts.create.failure')
       render :new
     end
   end
 
-  def approve
-    @post.update(approved: true, status: :approved)
-    redirect_to root_path, notice: 'Post approved successfully'
-  end
-
-  def reject
-    @post.update(approved: false, status: :rejected)
-    redirect_to root_path, notice: 'Post rejected successfully'
-  end
-
-  def pending_approval
-    @pending_posts = Post.where(status: 'pending')
-  end
-
-  def report
-    @post.update(reported: true)
-    redirect_to root_path, notice: 'Post reported successfully'
-  end
-
-  def reported_posts
-    @reported_posts = Post.where(reported: true)
-  end
-
-  def unreport
-    @post.update(status: 'rejected', reported: false)
-    redirect_to reported_posts_path, notice: 'Post was successfully rejected.'
-  end
-
-  def unpublish
-    @post.update(status: 'rejected', reported: true)
-    @post.destroy
-    redirect_to reported_posts_path, notice: 'Post was successfully unpublished.'
-  end
-
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: t('posts.update.success')
     else
       render :edit
     end
@@ -93,18 +50,36 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to posts_url, notice: t('posts.destroy.success')
   end
 
-  def toggle_like
-    if current_user.likes.exists?(post: @post)
-      current_user.likes.where(post: @post).destroy_all
-      flash[:notice] = 'You unliked this post.'
-    else
-      current_user.likes.create(post: @post)
-      flash[:notice] = 'You liked this post.'
-    end
-    redirect_to @post
+  def approve
+    approve_post
+  end
+
+  def reject
+    reject_post
+  end
+
+  def report
+    report_post
+  end
+
+  def unreport
+    unreport_post
+  end
+
+  def unpublish
+    unpublish_post
+  end
+
+  def pending_approval
+    pending_approval_post
+  end
+
+  def reported_posts
+    @reported_posts = Post.where(is_reported: true)
+    render 'reported_posts'
   end
 
   private
@@ -114,16 +89,16 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :attachment, :status, :approved, :reported)
+    params.require(:post).permit(:title, :description, :attachment, :status, :is_approved, :is_reported)
   end
 
   def check_post_status
-    return unless @post.approved? || @post.rejected?
-
-    redirect_to root_path, alert: 'Post is already approved or rejected'
+    if @post.approved? || @post.rejected?
+      redirect_to root_path, alert: t('posts.already_processed')
+    end
   end
 
   def handle_record_not_found
-    redirect_to root_path, alert: 'Post not found'
+    redirect_to root_path, alert: t('posts.not_found')
   end
 end

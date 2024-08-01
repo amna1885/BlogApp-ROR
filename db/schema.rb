@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_28_155848) do
+ActiveRecord::Schema.define(version: 2024_07_30_135650) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2024_07_28_155848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "attachment"
-    t.boolean "reported", default: false
+    t.boolean "is_reported", default: false
     t.integer "parent_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
@@ -74,11 +74,12 @@ ActiveRecord::Schema.define(version: 2024_07_28_155848) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "likeable_type"
+    t.integer "likeable_id"
     t.integer "comment_id"
-    t.index ["post_id"], name: "index_likes_on_post_id"
+    t.integer "post_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -89,9 +90,9 @@ ActiveRecord::Schema.define(version: 2024_07_28_155848) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "attachment"
-    t.boolean "approved"
+    t.boolean "is_approved"
     t.string "status", default: "pending"
-    t.boolean "reported", default: false
+    t.boolean "is_reported", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
@@ -122,8 +123,9 @@ ActiveRecord::Schema.define(version: 2024_07_28_155848) do
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "rejected"
+    t.boolean "is_rejected"
     t.text "reply"
+    t.integer "parent_id"
     t.index ["post_id"], name: "index_suggestions_on_post_id"
     t.index ["user_id"], name: "index_suggestions_on_user_id"
   end
@@ -161,7 +163,6 @@ ActiveRecord::Schema.define(version: 2024_07_28_155848) do
   add_foreign_key "comment_likes", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "reports", "posts"

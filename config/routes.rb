@@ -20,9 +20,9 @@ Rails.application.routes.draw do
 
   # Posts routes
   resources :posts do
+    resources :likes, only: %i[create destroy], defaults: { likeable_type: 'Post' }
     collection do
       get :pending_approval
-      get :reported, action: :reported_posts
     end
     member do
       patch :approve
@@ -30,29 +30,36 @@ Rails.application.routes.draw do
       patch :unpublish
       get :report
       patch :unreport
-      post :toggle_like
+      patch :update
     end
     resources :suggestions, only: %i[create update destroy edit] do
       member do
         post :reply
-        patch :reject
+        patch :update
       end
     end
     resources :comments do
+      resources :reports, only: %i[create destroy]
+      resources :likes, only: %i[create destroy], defaults: { likeable_type: 'Comment' }
+      collection do
+        get :reported, to: 'comments#index', reported: true
+        delete :unreport, to: 'comments#destroy'
+      end
       member do
-        get :report, action: :report_comment
-        patch :report, action: :report_comment
-        patch :unreport
-        patch :unpublish
-        post :like
-        delete :unlike
+        delete :unpublish, to: 'comments#destroy', unpublish: true
       end
     end
   end
 
   # Custom Comment Routes
   patch '/posts/:post_id/comments/:id/report', to: 'comments#report_comment', as: 'report_comment'
-  get '/reported_comments', to: 'comments#reported_comments', as: 'reported_comments'
+  delete '/unlike/:likeable_id', to: 'likes#destroy', as: 'unlike'
+  post '/like/:likeable_id', to: 'likes#create', as: 'like'
+
+  # Custom reported route
+  get 'reported_comments', to: 'comments#index', as: 'reported_comments', reported: true
+  get '/reported_posts', to: 'posts#reported_posts', as: 'reported_posts'
   # Moderator Dashboard routes
-  resources :moderator_dashboard, only: [:index]
+  resources :moderator_dashboard
+  patch '/moderator_dashboard/:id', to: 'moderator_dashboard#update', as: 'update_post'
 end

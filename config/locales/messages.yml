@@ -1,0 +1,90 @@
+en:
+  errors:
+    access_denied: "You are not authorized to access this page."
+    account_locked: "Your account has been locked due to many incorrect attempts."
+    need_to_login: "You need to log in to access this page."
+    sign_in_first: "You need to sign in or sign up before continuing."
+    messages:
+      title_length: "must be between 5 and 10 characters long."
+      description_length: "must be at least 10 characters long."
+      is_approved: "must be true or false."
+
+  comments:
+    create:
+      success: "Comment created successfully."
+    update:
+      success: "Comment was successfully updated."
+    report:
+      success: "Comment has been reported successfully."
+      not_found: "Comment not found."
+    unreport:
+      success: "Comment has been unreported successfully."
+    unpublish:
+      success: "Comment was successfully unpublished."
+    destroy:
+      success: "Comment was successfully deleted."
+    errors: "There were errors saving the comment: %{errors}"
+
+  likes:
+    create:
+      success_post: "You liked this post!"
+      success_comment: "You liked this comment!"
+      failure: "Unable to like."
+    destroy:
+      success_post: "You unliked this post!"
+      success_comment: "You unliked this comment!"
+      failure: "Failed to unlike."
+
+  moderator_dashboard:
+    approve:
+      success: "Post approved successfully"
+      failure: "Failed to approve post"
+    reject:
+      success: "Post rejected successfully"
+      failure: "Failed to reject post"
+
+  posts:
+    index:
+      need_sign_in: "You need to sign in!!"
+    create:
+      success: "Post created successfully"
+      failure: "There was an error creating the post"
+    approve:
+      success: "Post approved successfully"
+    reject:
+      success: "Post rejected successfully"
+      already_processed: "Post is already approved or rejected"
+    report:
+      success: "Post reported successfully"
+    unreport:
+      success: "Post was successfully unreported."
+    unpublish:
+      success: "Post was successfully unpublished."
+    update:
+      success: "Post was successfully updated."
+    destroy:
+      success: "Post was successfully destroyed."
+    not_found: "Post not found"
+
+  projects:
+    create:
+      success: "Project was successfully created."
+    update:
+      success: "Project was successfully updated."
+    destroy:
+      success: "Project was successfully destroyed."
+
+  suggestions:
+    create:
+      success: "Suggestion created successfully"
+      failure: "Suggestion can't be empty"
+    update:
+      success: "Suggestion was successfully updated."
+      failure: "Error updating suggestion."
+    destroy:
+      success: "Suggestion was successfully deleted."
+    reject:
+      success: "Suggestion was successfully rejected."
+    reply:
+      success: "Reply created successfully"
+      failure: "Failed to create reply."

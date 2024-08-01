@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SuggestionsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_post, only: %i[create update destroy reply edit reject]
 
   def create
@@ -9,9 +8,9 @@ class SuggestionsController < ApplicationController
     @suggestion.user = current_user
 
     if @suggestion.save
-      redirect_to post_path(@post), notice: 'Suggestion created successfully'
+      redirect_to post_path(@post), notice: t('suggestions.create.success')
     else
-      flash[:error] = "Suggestion can't be empty"
+      flash[:error] = t('suggestions.create.failure')
       redirect_to post_path(@post)
     end
   end
@@ -22,32 +21,37 @@ class SuggestionsController < ApplicationController
 
   def update
     @suggestion = current_user.suggestions.find(params[:id])
-    if @suggestion.update(suggestion_params)
-      redirect_to @post, notice: 'Suggestion was successfully updated.'
+    if params[:reject]
+      @suggestion.update(is_rejected: true)
+      @suggestion.destroy
+      redirect_to @post, notice: t('suggestions.reject.success')
     else
-      render 'posts/show', alert: 'Error updating suggestion.'
+      if @suggestion.update(suggestion_params)
+        redirect_to @post, notice: t('suggestions.update.success')
+      else
+        render 'posts/show'
+        flash[:alert] = t('suggestions.update.failure')
+      end
     end
   end
+
 
   def destroy
     @suggestion = current_user.suggestions.find(params[:id])
     @suggestion.destroy
-    redirect_to @post, notice: 'Suggestion was successfully deleted.'
-  end
-
-  def reject
-    @suggestion = @post.suggestions.find(params[:id])
-    @suggestion.update(rejected: true)
-    redirect_to @post, notice: 'Suggestion was successfully rejected.'
+    redirect_to @post, notice: t('suggestions.destroy.success')
   end
 
   def reply
-    @suggestion = @post.suggestions.new(suggestion_params)
-    @suggestion.user = current_user
-    if @suggestion.save
-      redirect_to @post, notice: 'Reply was successfully created.'
+    @suggestion = @post.suggestions.find(params[:suggestion_id])
+    @reply = @suggestion.replies.build(suggestion_params)
+    @reply.user = current_user
+    @reply.post = @post
+
+    if @reply.save
+      redirect_to post_path(@post), notice: t('suggestions.reply.success')
     else
-      redirect_to @post, alert: 'Failed to create reply.'
+      redirect_to post_path(@post), notice: t('suggestions.reply.failure')
     end
   end
 
@@ -57,11 +61,7 @@ class SuggestionsController < ApplicationController
     @post = Post.find(params[:post_id])
   end
 
-  def set_suggestion
-    @suggestion = @post.suggestions.find(params[:id])
-  end
-
   def suggestion_params
-    params.require(:suggestion).permit(:content, :rejected, :reply)
+    params.require(:suggestion).permit(:content, :is_rejected, :parent_id)
   end
 end

@@ -1,0 +1,13 @@
+<h1>Moderator Dashboard</h1>
+
+<h2>Pending Approval</h2>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.title %>
+     <%= link_to "Approve", update_post_path(post, approve: true), method: :patch %>
+    <%= link_to "Reject", update_post_path(post, approve: false), method: :patch %>
+    </li>
+  <% end %>
+</ul>

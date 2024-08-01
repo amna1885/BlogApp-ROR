@@ -6,8 +6,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?
 
-  before_action :check_login_attempts, if: :user_signed_in?
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :check_login_attempts, unless: :user_signed_in?
+  before_action :authenticate_user!
   before_action :set_cache_control
   before_action :check_login, except: %i[new create]
 
@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, alert: exception.message
+    redirect_to root_path, alert: t('errors.access_denied')
   end
 end
 
@@ -29,19 +29,19 @@ end
 def check_login
   return if user_signed_in?
 
-  flash[:alert] = 'You need to log in to access this page.'
+  flash[:alert] = t('errors.need_to_login')
   redirect_to new_user_session_path
 end
 
 # overwrite
 def authenticate_user!
   if! user_signed_in?
-  redirect_to new_user_session_path, alert: 'You need to sign in or sign up before continuing.'
+  redirect_to new_user_session_path, alert: t('errors.sign_in_first')
 end
 
 def check_login_attempts
   return unless user_signed_in? && (current_user.failed_attempts || 0) >= 5
 
-  flash[:alert] = 'Your account has been locked due to many incorrect attempts'
+  flash[:alert] = t('errors.account_locked')
   redirect_to root_path
 end

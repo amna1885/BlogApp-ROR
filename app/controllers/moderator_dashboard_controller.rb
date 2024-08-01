@@ -1,26 +1,23 @@
 # frozen_string_literal: true
 
 class ModeratorDashboardController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_post, only: %i[approve reject]
+  before_action :set_post, only: %i[update]
 
   def index
     @posts = Post.pending_approval
   end
 
-  def approve
-    if @post.approve!
-      redirect_to moderator_path, notice: 'Post approved successfully'
-    else
-      redirect_to moderator_path, alert: 'Failed to approve post'
-    end
-  end
-
-  def reject
-    if @post.reject!
-      redirect_to moderator_path, notice: 'Post rejected successfully'
-    else
-      redirect_to moderator_path, alert: 'Failed to reject post'
+  def update
+    @post = Post.find(params[:id])
+    if params[:approve]
+      if @post.update(is_approved: true)
+        redirect_to moderator_dashboard_path, notice: t('moderator_dashboard.approve.success')
+      else
+        redirect_to moderator_dashboard_path, alert: t('moderator_dashboard.approve.failure')
+      end
+    elsif params[:reject]
+      @post.destroy
+      redirect_to moderator_dashboard_path, notice: t('moderator_dashboard.reject.success')
     end
   end
 

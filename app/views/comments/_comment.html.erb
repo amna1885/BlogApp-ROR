@@ -19,20 +19,20 @@
         </div>
       </div>
       <div class="ui grid">
-        <div class="eight wide column">
-          <% if current_user.comment_likes.exists?(comment: comment) %>
-            <%= link_to "Unlike", unlike_post_comment_path(@post, comment), method: :delete, class: "ui secondary button" %>
-          <% else %>
-            <%= link_to "Like", like_post_comment_path(@post, comment), method: :post, class: "ui primary button" %>
-          <% end %>
-        </div>
+      <div class="eight wide column">
+  <% if current_user.likes.exists?(likeable: comment) %>
+    <%= link_to "Unlike", unlike_path(likeable_id: comment.id, likeable_type: 'Comment'), method: :delete, class: "ui secondary button" %>
+ <% else %>
+    <%= link_to "Like", like_path(likeable_type: 'Comment', likeable_id: comment.id), method: :post, class: "ui primary button" %>
+  <% end %>
+</div>
         <div class="eight wide column">
           <%= link_to 'Reply', new_post_comment_path(@post, parent_id: comment.id), class: "ui primary button" %>
         </div>
       </div>
       <div class="ui grid">
         <div class="sixteen wide column">
-          <%= link_to 'Report', report_post_comment_path(comment), method: :patch,  class: "ui red button" %>
+<%= link_to "Report", post_comment_reports_path(post_id: post.id, comment_id: comment.id), method: :post %>
         </div>
       </div>
     </div>
@@ -60,18 +60,19 @@
                   </div>
                 </div>
                 <div class="ui grid">
-                  <div class="eight wide column">
-                    <% if current_user.comment_likes.exists?(comment: child) %>
-                      <%= link_to "Unlike", unlike_post_comment_path(@post, child), method: :patch, class: "ui secondary button" %>
-                    <% else %>
-                      <%= link_to "Like", like_post_comment_path(@post, child), method: :patch, class: "ui primary button" %>
-                    <% end %>
-                  </div>
-                  <div class="eight wide column">
-                   <%= link_to 'Report', report_post_comment_path(@post, comment), method: :patch, class: "ui red button" %>
-                  </div>
+                <div class="eight wide column">
+                  <% if current_user.likes.exists?(likeable: child) %>
+                    <%= link_to "Unlike", unlike_path(likeable_id: child.id, likeable_type: 'Comment'), method: :delete, class: "ui secondary button" %>
+                  <% else %>
+                    <%= link_to "Like", like_path(likeable_type: 'Comment', likeable_id: child.id), method: :post, class: "ui primary button" %>
+                  <% end %>
                 </div>
-              </div>
+                  <div class="eight wide column">
+                    <% if comment.reported? %>
+  <%= button_to 'Unreport', comment_reports_path(comment), method: :delete, class: "ui button" %>
+<% else %>
+  <%= button_to 'Report', comment_reports_path(comment), method: :post, class: "ui button" %>
+<% end %>
             </div>
           </li>
         <% end %>
@@ -79,3 +80,5 @@
     <% end %>
   </div>
 </li>
+
+

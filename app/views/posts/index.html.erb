@@ -6,17 +6,17 @@
 
 <div class="ui divided list">
   <% if user_signed_in? && current_user.is_moderator? %>
-    <% @posts.where(approved: nil).each do |post| %>
-      <div class="item">
-        <%= link_to post.title, post_path(post) %>
-        <div class="ui mini buttons">
-          <%= button_to "Approve", approve_post_path(post), method: :patch, class: 'ui green button' %>
-          <%= button_to "Reject", reject_post_path(post), method: :patch, class: 'ui red button' %>
-        </div>
-      </div>
+    <% @posts.where(is_approved: nil).each do |post| %>
+    <div class="item">
+  <%= link_to post.title, post_path(post) %>
+  <div class="ui mini buttons">
+    <%= button_to "Approve", update_post_path(post, approve: true), method: :patch, class: 'ui green button' %>
+    <%= button_to "Reject", update_post_path(post, reject: true), method: :patch, class: 'ui red button' %>
+  </div>
+</div>
     <% end %>
   <% else %>
-    <% @posts.where(approved: true).each do |post| %>
+    <% @posts.where(is_approved: true).each do |post| %>
       <div class="item">
         <%= link_to post.title, post_path(post) %>
       </div>
@@ -35,5 +35,5 @@
 </p>
 
 <p>
-  <%= link_to "Reported Comments", reported_comments_path, class: 'ui secondary button' %>
+  <%= link_to "Reported Comments", reported_comments_path(is_reported: true), class: 'ui secondary button' %>
 </p>
