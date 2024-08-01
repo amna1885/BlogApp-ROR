@@ -1,22 +1,20 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :roles, dependent: :destroy
-
   rolify
-  has_many :posts
-  has_many :comments, dependent: :destroy
-  has_many :comment_likes, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :suggestions, dependent: :destroy
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :lockable
 
-  attr_accessor :login_attempts
+  has_many :roles, dependent: :destroy
+  has_many :posts
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
+  has_many :suggestions, dependent: :destroy
 
   before_save :update_login_attempts
 
+  attr_accessor :login_attempts
   enum role: { user: 0, moderator: 1, admin: 2 }
 
   def admin?
