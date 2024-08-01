@@ -7,8 +7,6 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :reports
   has_many :likes, as: :likeable
-  has_many :comment_likes, dependent: :destroy
-  has_many :likers, through: :likes, source: :user
   belongs_to :parent, class_name: 'Comment', optional: true
   has_many :children, class_name: 'Comment', foreign_key: 'parent_id', dependent: :destroy
 

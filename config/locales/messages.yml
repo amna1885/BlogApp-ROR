@@ -57,7 +57,7 @@ en:
     report:
       success: "Post reported successfully"
     unreport:
-      success: "Post was successfully rejected."
+      success: "Post was successfully unreported."
     unpublish:
       success: "Post was successfully unpublished."
     update:

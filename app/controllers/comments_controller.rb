@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
 
   def index
     @comments = if params[:reported].present? && current_user.moderator?
-      Comment.where(is_reported: true)
-    else
-      Comment.all
-    end
+                  Comment.reported_posts
+                else
+                  Comment.all
+                end
     @comments ||= []
   end
 
@@ -19,7 +19,6 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @post.comments.build(comment_params)
-    @comment.post_id = params[:post_id]
     @comment.user = current_user
 
     if @comment.save
@@ -59,7 +58,8 @@ class CommentsController < ApplicationController
   end
 
   def set_comment
-    @comment = @post.comments.find(params[:id]) if @post
+    @comment = @post.comments.find_by(id: params[:id])
+    redirect_to post_path(@post), alert: 'Comment not found' if @comment.nil?
   end
 
   def comment_params
@@ -67,9 +67,10 @@ class CommentsController < ApplicationController
   end
 
   def unpublish_comment
-    @comment = Comment.find(params[:id])
     @comment.destroy
-    @comments = Comment.where(is_reported: true)
+    @comments = Comment.reported_posts
     redirect_to comments_path(reported: true), notice: t('comments.unpublish.success')
   end
 end
+
+

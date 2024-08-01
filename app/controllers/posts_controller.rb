@@ -1,11 +1,10 @@
 # frozen_string_literal: true
-
 class PostsController < ApplicationController
   include Postable
   include CacheControlConcern
   load_and_authorize_resource
 
-  before_action :set_post, only: %i[show approve reject report destroy like unreport unpublish]
+  before_action :set_post, except: %i[index new create reported_posts]
   before_action :set_cache_control
   before_action :check_post_status, only: %i[approve reject]
 
@@ -13,12 +12,7 @@ class PostsController < ApplicationController
 
   def index
     if user_signed_in?
-      @reported_posts = Post.reported_posts
-      @posts = if current_user.has_role?(:moderator)
-                 Post.all
-               else
-                 Post.where(is_approved: true)
-               end
+      @posts = current_user.has_role?(:moderator) ? Post.all : Post.approved
     else
       flash[:error] = t('posts.index.need_sign_in')
       redirect_to new_user_session_path
@@ -26,12 +20,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.all
     render text: t('posts.not_found'), status: :not_found if @post.nil?
     @comment = Comment.new
     @suggestions = @post.suggestions
-    @reported_posts = Post.where(user: @post.user, is_reported: true)
-    render 'show'
   end
 
   def new
@@ -41,17 +32,17 @@ class PostsController < ApplicationController
   def create
     @post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = t('posts.index.create.success')
+      flash[:success] = t('posts.create.success')
       redirect_to @post
     else
-      flash[:error] = t('posts.index.create.failure')
+      flash[:error] = t('posts.create.failure')
       render :new
     end
   end
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: t('posts.index.update.success')
+      redirect_to @post, notice: t('posts.update.success')
     else
       render :edit
     end
@@ -59,7 +50,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: t('posts.index.destroy.success')
+    redirect_to posts_url, notice: t('posts.destroy.success')
   end
 
   def approve
@@ -87,7 +78,8 @@ class PostsController < ApplicationController
   end
 
   def reported_posts
-    reported_posts
+    @reported_posts = Post.where(is_reported: true)
+    render 'reported_posts'
   end
 
   private
@@ -101,9 +93,9 @@ class PostsController < ApplicationController
   end
 
   def check_post_status
-    return unless @post.approved? || @post.rejected?
-
-    redirect_to root_path, alert: t('posts.already_processed')
+    if @post.approved? || @post.rejected?
+      redirect_to root_path, alert: t('posts.already_processed')
+    end
   end
 
   def handle_record_not_found

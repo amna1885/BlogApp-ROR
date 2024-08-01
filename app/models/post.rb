@@ -20,7 +20,6 @@ class Post < ApplicationRecord
   validates :title, presence: true,
                     length: { minimum: 5, maximum: 10, message: I18n.t('errors.messages.title_length') }
   validates :description, presence: true, length: { minimum: 10, message: I18n.t('errors.messages.description_length') }
-  validates :is_approved, inclusion: { in: [true, false] }, on: :update
 
   scope :pending_approval, -> { where(is_approved: false, status: 'pending') }
   scope :approved, -> { where(is_approved: true) }
